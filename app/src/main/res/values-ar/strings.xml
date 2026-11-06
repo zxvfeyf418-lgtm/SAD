@@ -928,7 +928,7 @@
     <string name="wifi_brute_force_passwords">تجربة كلمات مرور الواي فاي</string>
     <string name="wifi_brute_force_desc">تجربة قائمة كلمات مرور على شبكة واي فاي مستهدفة</string>
     <string name="wifi_import_passwords">استيراد كلمات مرور</string>
-    <string name="wifi_passwords_count">%d كلمة مرور</string>
+    <string name="wifi_passwords_count" formatted="false">%d كلمة مرور</string>
     <string name="wifi_brute_force_active">Brute Force Active</string>
     <string name="wifi_bruteforce_successful">تم العثور على كلمة المرور</string>
     <string name="wifi_password_label">PASSWORD:</string>
