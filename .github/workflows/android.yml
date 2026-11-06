@@ -1,0 +1,32 @@
+name: تطبيق 2n5a لنظام Android
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: إعداد بيئة Java 17
+      uses: actions/setup-java@v5
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: إصلاح وصلاحيات الـ Gradle
+      run: |
+        if [ -f "gradle/wrapper/gradle-wrapper.properties" ]; then
+          sed -i '/distributionSha256Sum/d' gradle/wrapper/gradle-wrapper.properties
+        fi
+        if [ ! -f "gradlew" ]; then
+          gradle wrapper
+        fi
+        chmod +x gradlew
+    - name: بناء التطبيق
+      run: ./gradlew assembleDebug --no-daemon
+    - name: استخراج التطبيق الجاهز
+      uses: actions/upload-artifact@v4
+      with:
+        name: 2n5a-app
+        path: app/build/outputs/apk/debug/*.apk
