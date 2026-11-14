@@ -318,7 +318,7 @@ fun NfcTagEmulationRunScreen(navController: NavController, tagId: Long) {
                 if (!nfcOn || !hasHce || tag == null) {
                     Image(
                         painter = painterResource(id = R.drawable.passport_bad2_46x49),
-                        contentDescription = "NFC unavailable",
+                        contentDescription = "الاتصال قريب المدى غير متاح",
                         modifier = Modifier
                             .size(width = 138.dp, height = 147.dp)
                             .graphicsLayer(scaleX = scale, scaleY = scale),
@@ -330,7 +330,7 @@ fun NfcTagEmulationRunScreen(navController: NavController, tagId: Long) {
                 } else {
                     Image(
                         painter = painterResource(id = R.drawable.nfc_dolphin_emulation_51x64_transparent),
-                        contentDescription = "NFC emulation",
+                        contentDescription = "محاكاة الاتصال قريب المدى",
                         modifier = Modifier
                             .size(width = 153.dp, height = 192.dp)
                             .graphicsLayer(scaleX = scale, scaleY = scale),
@@ -446,7 +446,7 @@ private fun EmulationHeaderScaffold(
             DolphyIconButton(onClick = onToggleEditMode) {
                 Icon(
                     imageVector = Icons.Filled.Edit,
-                    contentDescription = if (editMode) "Exit edit mode" else "Edit"
+                    contentDescription = if (editMode) "إنهاء وضع التعديل" else "تعديل"
                 )
             }
             if (editMode) {
