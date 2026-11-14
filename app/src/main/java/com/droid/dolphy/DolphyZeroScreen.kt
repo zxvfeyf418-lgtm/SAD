@@ -104,11 +104,11 @@ fun DolphyZeroScreen(navController: NavController) {
             items = listOf(
                 ZeroMenuItem("RM", "Remote", ZeroAction.OpenHid),
                 ZeroMenuItem("TV", "IR TV", ZeroAction.Navigate("ir_tv_home")),
-                ZeroMenuItem("IR", "IR Storm", ZeroAction.Navigate("ir_storm")),
-                ZeroMenuItem("IJ", "IR Jammer", ZeroAction.Navigate("ir_jammer")),
-                ZeroMenuItem("AR", "Archive", ZeroAction.Navigate("user_ir_remotes")),
-                ZeroMenuItem("JS", "JS Runner", ZeroAction.ShowMessage("JS Runner is not implemented in the Android version")),
-                ZeroMenuItem("UP", "Updater", ZeroAction.ShowMessage("Updater is firmware-only"))
+                ZeroMenuItem("IR", "عاصفة الأشعة تحت الحمراء", ZeroAction.Navigate("ir_storm")),
+                ZeroMenuItem("IJ", "تشويش الأشعة تحت الحمراء", ZeroAction.Navigate("ir_jammer")),
+                ZeroMenuItem("AR", "الأرشيف", ZeroAction.Navigate("user_ir_remotes")),
+                ZeroMenuItem("JS", "مشغّل جافاسكربت", ZeroAction.ShowMessage("مشغّل جافاسكربت غير متوفر في إصدار أندرويد")),
+                ZeroMenuItem("UP", "المحدّث", ZeroAction.ShowMessage("Updater is firmware-only"))
             )
         )
     }
@@ -117,12 +117,12 @@ fun DolphyZeroScreen(navController: NavController) {
             title = context.getString(R.string.zero_main_apps),
             sourcePath = "applications/main/application.fam",
             items = listOf(
-                ZeroMenuItem("GP", "GPIO", ZeroAction.Navigate("bluetooth")),
-                ZeroMenuItem("IR", "Infrared", ZeroAction.Navigate("ir_flipper_home")),
-                ZeroMenuItem("RF", "125 kHz RFID", ZeroAction.Navigate("nfc_tools")),
-                ZeroMenuItem("NF", "NFC", ZeroAction.Navigate("nfc_tools")),
-                ZeroMenuItem("U2", "U2F", ZeroAction.ShowMessage("U2F is not supported by the Android version")),
-                ZeroMenuItem("AR", "Archive", ZeroAction.Navigate("user_ir_remotes"))
+                ZeroMenuItem("GP", "منافذ الإدخال والإخراج", ZeroAction.Navigate("bluetooth")),
+                ZeroMenuItem("IR", "الأشعة تحت الحمراء", ZeroAction.Navigate("ir_flipper_home")),
+                ZeroMenuItem("RF", "تحديد الهوية بتردد 125 كيلوهرتز", ZeroAction.Navigate("nfc_tools")),
+                ZeroMenuItem("NF", "الاتصال قريب المدى", ZeroAction.Navigate("nfc_tools")),
+                ZeroMenuItem("U2", "المصادقة بمفتاح أمان", ZeroAction.ShowMessage("هذه الميزة غير مدعومة في إصدار أندرويد")),
+                ZeroMenuItem("AR", "الأرشيف", ZeroAction.Navigate("user_ir_remotes"))
             )
         )
     }
@@ -132,14 +132,14 @@ fun DolphyZeroScreen(navController: NavController) {
             sourcePath = "applications/services/loader/loader_menu.c",
             items = listOf(
 
-                ZeroMenuItem("IR", "Infrared", ZeroAction.Navigate("ir_flipper_home")),
-                ZeroMenuItem("NF", "NFC", ZeroAction.Navigate("nfc_tools")),
-                ZeroMenuItem("BL", "BLE Spam", ZeroAction.Navigate("bluetooth")),
-                ZeroMenuItem("HD", "HID Remote", ZeroAction.OpenHid),
-                ZeroMenuItem("AR", "Archive", ZeroAction.Navigate("user_ir_remotes")),
-                ZeroMenuItem("ST", "Settings", ZeroAction.OpenMenu(settingsMenu)),
+                ZeroMenuItem("IR", "الأشعة تحت الحمراء", ZeroAction.Navigate("ir_flipper_home")),
+                ZeroMenuItem("NF", "الاتصال قريب المدى", ZeroAction.Navigate("nfc_tools")),
+                ZeroMenuItem("BL", "اختبار بث البلوتوث منخفض الطاقة", ZeroAction.Navigate("bluetooth")),
+                ZeroMenuItem("HD", "التحكم عن بُعد بلوحة المفاتيح", ZeroAction.OpenHid),
+                ZeroMenuItem("AR", "الأرشيف", ZeroAction.Navigate("user_ir_remotes")),
+                ZeroMenuItem("ST", "الإعدادات", ZeroAction.OpenMenu(settingsMenu)),
                 ZeroMenuItem("AP", "التطبيقات", ZeroAction.OpenMenu(appsMenu)),
-                ZeroMenuItem("MN", "Main", ZeroAction.OpenMenu(mainMenu))
+                ZeroMenuItem("MN", "الرئيسية", ZeroAction.OpenMenu(mainMenu))
             )
         )
     }
@@ -317,7 +317,7 @@ private fun MiniFirmwareScreen(
         Column(modifier = Modifier.fillMaxSize()) {
             if(isLocked) {
                 Text(
-                    text = "LOCKED",
+                    text = "مقفل",
                     color = accent,
                     fontFamily = FontFamily.Monospace,
                     fontWeight = FontWeight.Bold,
@@ -325,21 +325,21 @@ private fun MiniFirmwareScreen(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "Flipper Zero style lockscreen",
+                    text = "شاشة قفل بتصميم فليبر زيرو",
                     color = accent.copy(alpha = 0.85f),
                     fontFamily = FontFamily.Monospace,
                     style = MaterialTheme.typography.bodySmall
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "Press CENTER to unlock",
+                    text = "اضغط زر الوسط لفتح القفل",
                     color = accent.copy(alpha = 0.85f),
                     fontFamily = FontFamily.Monospace,
                     style = MaterialTheme.typography.bodySmall
                 )
                 Spacer(modifier = Modifier.weight(1f))
                 Text(
-                    text = "Only available features launch.\nHardware-only modules stay disabled.",
+                    text = "تعمل الوظائف المتاحة فقط.\nتبقى الوحدات التي تتطلب عتاداً خاصاً معطّلة.",
                     color = accent.copy(alpha = 0.65f),
                     fontFamily = FontFamily.Monospace,
                     style = MaterialTheme.typography.labelSmall
