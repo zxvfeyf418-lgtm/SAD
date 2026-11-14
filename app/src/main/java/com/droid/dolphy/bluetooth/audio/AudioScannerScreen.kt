@@ -391,7 +391,7 @@ fun AudioScannerScreen(navController: NavController) {
                                 ) {
                                     Icon(
                                         Icons.Default.Refresh,
-                                        contentDescription = "Restart",
+                                        contentDescription = "إعادة التشغيل",
                                         tint = Color.White,
                                         modifier = Modifier.size(48.dp)
                                     )
