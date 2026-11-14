@@ -645,7 +645,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
             item {
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "Dolphy ($appVersion)\nLicensed under GNU GPL",
+                    text = "دولفي ($appVersion)\nمرخّص بموجب رخصة جنو العمومية",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.fillMaxWidth(),
