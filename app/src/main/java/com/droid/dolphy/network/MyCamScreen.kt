@@ -196,7 +196,7 @@ private fun MjpegView(url: String, authHeader: String?, onInterrupted: (String) 
     var frame by remember { mutableStateOf<Bitmap?>(null) }
     LaunchedEffect(url, authHeader) {
         MyCamEngine.mjpegFrames(url, authHeader)
-            .catch { e -> onInterrupted("Stream interrupted: ${e.message ?: "no response"}") }
+            .catch { e -> onInterrupted("انقطع البث: ${e.message ?: "لا توجد استجابة"}") }
             .collect { frame = it }
     }
     Box(
@@ -224,7 +224,7 @@ private fun SnapshotView(url: String, authHeader: String?, onInterrupted: (Strin
     var frame by remember { mutableStateOf<Bitmap?>(null) }
     LaunchedEffect(url, authHeader) {
         MyCamEngine.snapshotFrames(url, authHeader)
-            .catch { e -> onInterrupted("Snapshot stream interrupted: ${e.message ?: "no response"}") }
+            .catch { e -> onInterrupted("انقطع بث الصورة: ${e.message ?: "لا توجد استجابة"}") }
             .collect { frame = it }
     }
     Box(
@@ -258,7 +258,7 @@ private fun RtspView(url: String, onError: (String) -> Unit) {
             setMediaSource(source)
             addListener(object : Player.Listener {
                 override fun onPlayerError(error: PlaybackException) {
-                    onError("RTSP playback error: ${error.errorCodeName}")
+                    onError("خطأ في تشغيل البث: ${error.errorCodeName}")
                 }
             })
             playWhenReady = true
