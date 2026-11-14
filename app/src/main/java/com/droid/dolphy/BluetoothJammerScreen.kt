@@ -107,7 +107,7 @@ fun BluetoothJammerScanScreen(onBack: () -> Unit, accentColor: Color) {
                                 @Suppress("DEPRECATION") intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)
                             }
                             device?.let {
-                                val info = JammerDevice(it.name ?: "Unknown", it.address)
+                                val info = JammerDevice(it.name ?: "جهاز غير معروف", it.address)
                                 if (devices.none { d -> d.address == info.address }) {
                                     devices = devices + info
                                 }
