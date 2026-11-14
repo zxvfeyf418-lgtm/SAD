@@ -518,7 +518,7 @@ fun LanScannerScreen(navController: NavController) {
                             )
                         } else {
                             DolphyIconButton(onClick = { startScan() }) {
-                                Icon(Icons.Default.Refresh, contentDescription = "Rescan", tint = accent)
+                                Icon(Icons.Default.Refresh, contentDescription = "إعادة الفحص", tint = accent)
                             }
                         }
                     }
