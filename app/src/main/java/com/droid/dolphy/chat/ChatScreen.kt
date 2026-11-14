@@ -107,7 +107,7 @@ private fun ChatContent(navController: NavController) {
     }
 
     BlurHeaderBox(
-        title = "Dolphy Chat",
+        title = "محادثة دولفي",
         onBack = { navController.popBackStack() },
         accentColor = MaterialTheme.colorScheme.primary,
         actions = {
