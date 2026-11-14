@@ -35,9 +35,7 @@ import com.droid.dolphy.qr.*
 @Composable
 fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewModel, navController: NavController) {
     val bottomScrollPadding = 132.dp
-    val isDarkTheme by spamViewModel.isDarkTheme.collectAsState()
     val accentColor = MaterialTheme.colorScheme.primary
-    val selectedAccentColor by spamViewModel.accentColor.collectAsState()
     val flipperFontEnabled by spamViewModel.flipperFontEnabled.collectAsState()
     val uiScale by spamViewModel.uiScale.collectAsState()
     val cyclicDolphinAnimationEnabled by spamViewModel.cyclicDolphinAnimationEnabled.collectAsState()
@@ -51,7 +49,6 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
         }.getOrDefault("unknown")
     }
     val uriHandler = LocalUriHandler.current
-    val appLanguage by spamViewModel.appLanguage.collectAsState()
 
     Box(modifier = Modifier.fillMaxSize()) {
 
@@ -101,56 +98,14 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                 Column(verticalArrangement = Arrangement.spacedBy(M3SegmentedListItemSpacing)) {
                     M3SegmentedListSectionHeader(title = stringResource(R.string.settings_general).uppercase())
 
-                    val generalItems = 4
-
-
-                    MaterialCard(
-                        modifier = Modifier.fillMaxWidth(),
-                        accentColor = accentColor,
-                        shape = getSegmentedShape(0, generalItems),
-                        contentPadding = 16.dp
-                    ) {
-                        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Icon(
-                                    imageVector = Icons.Default.Language,
-                                    contentDescription = null,
-                                    tint = accentColor,
-                                    modifier = Modifier.size(24.dp)
-                                )
-                                Spacer(Modifier.width(12.dp))
-                                Text(
-                                    stringResource(R.string.settings_language),
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontWeight = FontWeight.SemiBold,
-                                    color = MaterialTheme.colorScheme.onSurface
-                                )
-                            }
-                            SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
-                                listOf(
-                                    stringResource(R.string.language_russian) to "ru",
-                                    "English" to "en",
-                                ).forEachIndexed { index, (label, language) ->
-                                    SegmentedButton(
-                                        selected = appLanguage == language,
-                                        onClick = {
-                                            spamViewModel.setAppLanguage(language)
-                                            applyInAppLocale(context)
-                                        },
-                                        shape = SegmentedButtonDefaults.itemShape(index, 2),
-                                        label = { Text(label) },
-                                    )
-                                }
-                            }
-                        }
-                    }
+                    val generalItems = 3
 
 
                     val quickStartupEnabled by spamViewModel.quickStartupEnabled.collectAsState()
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
                         accentColor = accentColor,
-                        shape = getSegmentedShape(1, generalItems),
+                        shape = getSegmentedShape(0, generalItems),
                         contentPadding = 0.dp
                     ) {
                         Row(
@@ -179,7 +134,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
                         accentColor = accentColor,
-                        shape = getSegmentedShape(2, generalItems),
+                        shape = getSegmentedShape(1, generalItems),
                         contentPadding = 0.dp,
                     ) {
                         SettingsItem(onClick = { navController.navigate("plugin_manager") }) {
@@ -201,7 +156,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
                         accentColor = accentColor,
-                        shape = getSegmentedShape(3, generalItems),
+                        shape = getSegmentedShape(2, generalItems),
                         contentPadding = 0.dp
                     ) {
                         Row(
@@ -242,7 +197,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     val functionsMenuViewType by spamViewModel.functionsMenuViewType.collectAsState()
                     val functionsTileSize by spamViewModel.functionsTileSize.collectAsState()
                     val appStyleMode by spamViewModel.appStyleMode.collectAsState()
-                    val interfaceItems = 5 + 1 + 1 + (if (functionsMenuViewType == 1) 1 else 0) + (if (liquidGlassEnabled) 1 else 0)
+                    val interfaceItems = 5 + (if (functionsMenuViewType == 1) 1 else 0) + (if (liquidGlassEnabled) 1 else 0)
 
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
@@ -332,89 +287,10 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     }
 
 
-                    var themeMenuExpanded by remember { mutableStateOf(false) }
-                    val themeMode by spamViewModel.themeMode.collectAsState()
-                    val themeModeText = when (themeMode) {
-                        1 -> stringResource(R.string.settings_theme_dark)
-                        2 -> stringResource(R.string.settings_theme_light)
-                        else -> stringResource(R.string.settings_theme_auto)
-                    }
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
                         accentColor = accentColor,
                         shape = getSegmentedShape(3, interfaceItems),
-                        contentPadding = 0.dp
-                    ) {
-                        Box {
-                            SettingsItem(onClick = { themeMenuExpanded = true }) {
-                                Text(stringResource(R.string.settings_theme), style = MaterialTheme.typography.bodyLarge, modifier = Modifier.weight(1f))
-                                Text(
-                                    text = themeModeText,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
-                            }
-                            DropdownMenu(
-                                expanded = themeMenuExpanded,
-                                onDismissRequest = { themeMenuExpanded = false },
-                                modifier = Modifier.background(MaterialTheme.colorScheme.surfaceContainerHighest, RoundedCornerShape(12.dp))
-                            ) {
-                                DropdownMenuItem(text = { Text(stringResource(R.string.settings_theme_auto)) }, onClick = { spamViewModel.setThemeMode(0); themeMenuExpanded = false })
-                                DropdownMenuItem(text = { Text(stringResource(R.string.settings_theme_dark)) }, onClick = { spamViewModel.setThemeMode(1); themeMenuExpanded = false })
-                                DropdownMenuItem(text = { Text(stringResource(R.string.settings_theme_light)) }, onClick = { spamViewModel.setThemeMode(2); themeMenuExpanded = false })
-                            }
-                        }
-                    }
-
-
-                    val isAdaptiveColor by spamViewModel.isAdaptiveColor.collectAsState()
-                    val colorOptions = remember {
-                        val base = listOf(
-                            SettingColorOption("Dolphy", OrangeAccent),
-                            SettingColorOption("Red", RedThemeAccent),
-                            SettingColorOption("Green", GreenThemeAccent),
-                            SettingColorOption("Purple", PurpleThemeAccent),
-                            SettingColorOption("Cyan", CyanThemeAccent),
-                        )
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                            listOf(SettingColorOption("Adaptive", Color.Transparent, isAdaptive = true)) + base
-                        } else {
-                            base
-                        }
-                    }
-
-                    MaterialCard(
-                        modifier = Modifier.fillMaxWidth(),
-                        accentColor = accentColor,
-                        shape = getSegmentedShape(4, interfaceItems),
-                        contentPadding = 12.dp,
-                    ) {
-                        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                            Text(
-                                text = stringResource(R.string.settings_accent_color),
-                                style = MaterialTheme.typography.bodyLarge,
-                                fontWeight = FontWeight.SemiBold,
-                                modifier = Modifier.padding(horizontal = 4.dp),
-                            )
-                            AccentColorCarousel(
-                                options = colorOptions,
-                                isAdaptiveColor = isAdaptiveColor,
-                                currentAccent = selectedAccentColor,
-                                onSelect = { option ->
-                                    if (option.isAdaptive) {
-                                        spamViewModel.setAdaptiveColor(true)
-                                    } else {
-                                        spamViewModel.setAccentColor(option.color)
-                                    }
-                                },
-                            )
-                        }
-                    }
-
-                    MaterialCard(
-                        modifier = Modifier.fillMaxWidth(),
-                        accentColor = accentColor,
-                        shape = getSegmentedShape(5, interfaceItems),
                         contentPadding = 12.dp,
                     ) {
                         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -516,7 +392,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
                         accentColor = accentColor,
-                        shape = getSegmentedShape(if (functionsMenuViewType == 1) 7 else 6, interfaceItems),
+                        shape = getSegmentedShape(if (functionsMenuViewType == 1) 5 else 4, interfaceItems),
                         contentPadding = 12.dp,
                     ) {
                         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -586,7 +462,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
                         accentColor = accentColor,
-                        shape = getSegmentedShape(if (functionsMenuViewType == 1) 8 else 7, interfaceItems),
+                        shape = getSegmentedShape(if (functionsMenuViewType == 1) 6 else 5, interfaceItems),
                         contentPadding = 0.dp
                     ) {
                         Column {
@@ -710,9 +586,54 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
 
 
             item {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(
+                        text = "حقوق المطوّر",
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(start = 8.dp, bottom = 2.dp)
+                    )
+                    MaterialCard(
+                        modifier = Modifier.fillMaxWidth(),
+                        accentColor = Color(0xFFE02ACB),
+                        shape = RoundedCornerShape(24.dp),
+                        contentPadding = 0.dp
+                    ) {
+                        Column {
+                            Text(
+                                text = "أبـو الأكـبـر",
+                                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 14.dp),
+                                color = Color(0xFFE02ACB),
+                                style = MaterialTheme.typography.titleLarge,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center
+                            )
+                            MaterialDivider()
+                            SettingsItem(onClick = { uriHandler.openUri("https://instagram.com/2n5a") }) {
+                                Icon(Icons.Default.CameraAlt, null, tint = Color(0xFFF28A45), modifier = Modifier.size(23.dp))
+                                Spacer(Modifier.width(12.dp))
+                                Text("Instagram  ·  2n5a", style = MaterialTheme.typography.bodyLarge)
+                                Spacer(Modifier.weight(1f))
+                                Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
+                            }
+                            MaterialDivider()
+                            SettingsItem(onClick = { uriHandler.openUri("https://t.me/e0a_e") }) {
+                                Icon(Icons.AutoMirrored.Filled.Send, null, tint = Color(0xFFF28A45), modifier = Modifier.size(23.dp))
+                                Spacer(Modifier.width(12.dp))
+                                Text("Telegram  ·  e0a_e", style = MaterialTheme.typography.bodyLarge)
+                                Spacer(Modifier.weight(1f))
+                                Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
+                            }
+                        }
+                    }
+                }
+            }
+
+            item {
                 Column(verticalArrangement = Arrangement.spacedBy(M3SegmentedListItemSpacing)) {
                     Text(
-                        text = "ABOUT",
+                        text = "حول التطبيق",
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         fontWeight = FontWeight.Bold,
