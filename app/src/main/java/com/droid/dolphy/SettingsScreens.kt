@@ -80,7 +80,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
 
             item {
                 Column(verticalArrangement = Arrangement.spacedBy(M3SegmentedListItemSpacing)) {
-                    M3SegmentedListSectionHeader(title = "PASSPORT")
+                    M3SegmentedListSectionHeader(title = "الملف الشخصي")
 
 
                     MaterialCard(
@@ -686,7 +686,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "Credits:",
+                        text = "شكر وتقدير:",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         fontWeight = FontWeight.Bold
