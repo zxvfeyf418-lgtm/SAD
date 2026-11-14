@@ -78,9 +78,21 @@ data class StorePlugin(
             ?: "إضافة"
 
     val displayDescription: String
-        get() = translatedDescription?.takeIf { it.isNotBlank() }
-            ?: description.takeIf { value -> value.any { it in '\u0600'..'\u06FF' } }
-            ?: "وصف الإضافة غير متوفر بالعربية حالياً."
+        get() {
+            val arabicDescription = translatedDescription
+                ?.takeIf { value -> value.isNotBlank() && value.any { it in '\u0600'..'\u06FF' } }
+                ?: description.takeIf { value -> value.any { it in '\u0600'..'\u06FF' } }
+                ?: return "وصف الإضافة غير متوفر بالعربية حالياً."
+
+            val names = listOf(name, translatedName.orEmpty(), displayName).distinct().filter { it.isNotBlank() }
+            val cleaned = names.fold(arabicDescription.trim()) { value, label ->
+                value.replaceFirst(
+                    Regex("^\\s*\${Regex.escape(label)}\\s*[:：–—-]\\s*", RegexOption.IGNORE_CASE),
+                    "",
+                )
+            }.trim()
+            return cleaned.ifBlank { arabicDescription.trim() }
+        }
 
     val displayShortDescription: String
         get() = displayDescription.lineSequence().firstOrNull { it.isNotBlank() }?.trim().orEmpty()
@@ -234,8 +246,14 @@ object PluginStoreRepository {
             val td = plugin.description.takeIf { it.isNotBlank() }
                 ?.let { PluginTranslator.translate(it, target) }
             plugin.copy(
-                translatedName = tn?.takeIf { it.isNotBlank() && !it.equals(plugin.name, ignoreCase = true) },
-                translatedDescription = td?.takeIf { it.isNotBlank() },
+                translatedName = tn?.takeIf {
+                    it.isNotBlank() &&
+                        it.any { ch -> ch in '\u0600'..'\u06FF' } &&
+                        !it.equals(plugin.name, ignoreCase = true)
+                },
+                translatedDescription = td?.takeIf {
+                    it.isNotBlank() && it.any { ch -> ch in '\u0600'..'\u06FF' }
+                },
             )
         }
         if (_plugins.value.map { it.key } == list.map { it.key }) {
