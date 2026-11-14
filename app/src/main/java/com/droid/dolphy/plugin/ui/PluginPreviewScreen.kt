@@ -53,6 +53,7 @@ import com.droid.dolphy.R
 import com.droid.dolphy.plugin.PluginIcons
 import com.droid.dolphy.plugin.PluginManager
 import com.droid.dolphy.plugin.model.PluginPreview
+import com.droid.dolphy.plugin.store.rememberTranslated
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -238,7 +239,7 @@ private fun PluginHero(preview: PluginPreview, installed: Boolean) {
             }
         }
         Text(
-            preview.manifest.name,
+            rememberTranslated(preview.manifest.name),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
@@ -252,7 +253,7 @@ private fun PluginHero(preview: PluginPreview, installed: Boolean) {
         }
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             PreviewChip("v${preview.manifest.version}")
-            PreviewChip(preview.runtime.replaceFirstChar { it.uppercase() })
+            PreviewChip(runtimeLabel(preview.runtime))
             if (installed) PreviewChip(stringResource(R.string.plugin_preview_installed))
         }
     }
@@ -367,4 +368,13 @@ private fun formatFileSize(bytes: Long): String {
         bytes >= 1024 -> kb.format(bytes / 1024.0)
         else -> bytesUnit.format(bytes)
     }
+}
+
+
+private fun runtimeLabel(runtime: String): String = when (runtime.lowercase()) {
+    "python", "py" -> "بايثون"
+    "javascript", "js" -> "جافاسكربت"
+    "dex", "java" -> "جافا"
+    "native" -> "تشغيل أصلي"
+    else -> "نوع التشغيل: ${runtime}"
 }
