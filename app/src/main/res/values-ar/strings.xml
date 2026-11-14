@@ -277,7 +277,7 @@
     <string name="other_nfc">أدوات بطاقات الاتصال قريب المدى</string>
     <string name="other_nfc_desc">قراءة بطاقات NFC وكتابة البيانات عليها وفحص محتواها.</string>
     <string name="other_hid">التحكم بالأجهزة عن طريق البلوتوث</string>
-    <string name="other_hid_desc">التحكم بالحاسوب والأجهزة المتوافقة باستخدام لوحة مفاتيح البلوتوث.</string>
+    <string name="other_hid_desc">التحكم بالأجهزة عن طريق البلوتوث.</string>
     <string name="other_whisperpair">الاقتران الذكي</string>
     <string name="other_whisperpair_desc">البحث عن سماعات البلوتوث وفحص اتصالها وتوافقها.</string>
     <string name="other_ir_tv">أجهزة تحكم التلفاز</string>
