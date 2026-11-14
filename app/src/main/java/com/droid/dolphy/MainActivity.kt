@@ -1040,7 +1040,7 @@ private fun UsbIrConnectedBottomSheet(
                 Box(contentAlignment = Alignment.Center) {
                     Icon(
                         imageVector = Icons.Default.Usb,
-                        contentDescription = "USB",
+                        contentDescription = "يو إس بي",
                         tint = accentColor,
                         modifier = Modifier.size(36.dp)
                     )
