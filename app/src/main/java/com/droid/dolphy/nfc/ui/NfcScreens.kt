@@ -230,7 +230,7 @@ fun NfcResultScreen(navController: NavController, viewModel: NfcViewModel, scanI
         ) {
             item {
                 SectionCard(title = stringResource(R.string.nfc_section_main)) {
-                    KeyValue("UID (hex)", scan!!.uidHex)
+                    KeyValue("معرّف البطاقة (ست عشري)", scan!!.uidHex)
                     KeyValue(AppLocale.getString(context, R.string.nfc_detail_4), scan!!.techListCsv)
                     KeyValue("Writable", scan!!.writable?.let { if(it) AppLocale.getString(context, R.string.nfc_detail_5) else AppLocale.getString(context, R.string.nfc_detail_6) } ?: "—")
                     KeyValue(AppLocale.getString(context, R.string.nfc_detail_7), scan!!.maxSizeBytes?.let { "$it bytes" } ?: "—")
@@ -258,7 +258,7 @@ fun NfcResultScreen(navController: NavController, viewModel: NfcViewModel, scanI
                             )
                         }
                         if(showHex) {
-                            KeyValue("HEX", scan!!.ndefHex ?: "—")
+                            KeyValue("البيانات الست عشرية", scan!!.ndefHex ?: "—")
                         }
                     }
                 }
@@ -266,10 +266,10 @@ fun NfcResultScreen(navController: NavController, viewModel: NfcViewModel, scanI
 
             item {
                 SectionCard(title = stringResource(R.string.nfc_section_analysis)) {
-                    KeyValue("NTAG", scan!!.ntagType ?: "—")
+                    KeyValue("نوع البطاقة (NTAG)", scan!!.ntagType ?: "—")
                     KeyValue("Read-only", scan!!.isReadOnly?.let { if(it) AppLocale.getString(context, R.string.nfc_detail_5) else AppLocale.getString(context, R.string.nfc_detail_6) } ?: "—")
                     KeyValue(
-                        "Password protection",
+                        "الحماية بكلمة مرور",
                         when {
                             scan!!.passwordProtectionSupported != true -> "—"
                             scan!!.passwordProtectionEnabled == true -> AppLocale.getString(context, R.string.nfc_detail_12)
