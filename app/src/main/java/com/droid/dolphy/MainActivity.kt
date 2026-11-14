@@ -1093,7 +1093,7 @@ private fun UsbIrConnectedBottomSheet(
                     .height(48.dp)
             ) {
                 Text(
-                    text = "OK",
+                    text = stringResource(R.string.ok),
                     fontWeight = FontWeight.Bold
                 )
             }
