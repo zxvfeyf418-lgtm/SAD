@@ -150,10 +150,10 @@ fun AudioScannerScreen(navController: NavController) {
         if (isAudio || hasFastPair) {
             val prev = devices[device.address]
             val displayName = when {
-                name.isNotBlank() && name != "Unknown Device" -> name
+                name.isNotBlank() && name != "جهاز غير معروف" -> name
                 hasFastPair || prev?.hasFastPair == true -> prev?.name?.takeIf {
-                    it.isNotBlank() && it != "Unknown Device"
-                } ?: "Fast Pair audio"
+                    it.isNotBlank() && it != "جهاز غير معروف"
+                } ?: "صوت الاقتران السريع"
                 else -> prev?.name ?: "Unknown Audio"
             }
             devices[device.address] = ScannerDeviceUi(
