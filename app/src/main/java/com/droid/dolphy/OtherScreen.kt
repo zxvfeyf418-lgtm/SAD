@@ -1057,7 +1057,7 @@ fun OtherScreen(navController: NavController, spamViewModel: SpamViewModel) {
                         )
                     }
                     Text(
-                        text = info.description.ifEmpty { "No description available" },
+                        text = info.description.ifEmpty { "ماكو وصف متوفر." },
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center
@@ -1066,7 +1066,7 @@ fun OtherScreen(navController: NavController, spamViewModel: SpamViewModel) {
             },
             confirmButton = {
                 DolphyTextButton(onClick = { infoDialogDestination = null }) {
-                    Text("OK")
+                    Text("حسناً")
                 }
             }
         )
