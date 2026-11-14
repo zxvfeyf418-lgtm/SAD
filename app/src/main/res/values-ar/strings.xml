@@ -96,6 +96,10 @@
     <string name="bond_spam_target">الجهاز المستهدف:</string>
     <string name="bond_spam_select_device">اختر جهازاً</string>
     <string name="ble_spam_screen_title">أدوات البلوتوث منخفض الطاقة</string>
+    <string name="nav_fab_button">الزر العائم</string>
+    <string name="nav_fab_button_visible">ظاهر في الشريط السفلي</string>
+    <string name="nav_fab_button_hidden">مخفي. الشريط في المنتصف</string>
+    <string name="nav_fab_action">وظيفة الزر العائم</string>
     <string name="settings_bottom_panel">الشريط السفلي</string>
     <string name="settings_fab_summary">شنو يفتح الزر الموجود بنص الشريط السفلي</string>
     <string name="settings_fab_choose">اختر إجراء الزر العائم</string>
