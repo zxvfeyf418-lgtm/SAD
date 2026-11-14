@@ -89,21 +89,21 @@ fun functionDestinationSections(): List<Pair<String, List<FunctionDestination>>>
             .getSharedPreferences("DolphyPrefs", android.content.Context.MODE_PRIVATE)
             .getInt("app_style_mode", 0) == 1
         val bleSpamCards = if (compactStyle) listOf(
-            FunctionDestination(Icons.Default.Bolt, "اختبار بث البلوتوث منخفض الطاقة", stringResource(R.string.catalog_ble_desc), "ble_spam_screen", OtherSections.BLUETOOTH),
-            FunctionDestination(Icons.Default.Link, "اختبار الاقتران", stringResource(R.string.catalog_bond_desc), "bond_spam_screen", OtherSections.BLUETOOTH),
+            FunctionDestination(Icons.Default.Bolt, stringResource(R.string.catalog_ble_title), stringResource(R.string.catalog_ble_desc), "ble_spam_screen", OtherSections.BLUETOOTH),
+            FunctionDestination(Icons.Default.Link, stringResource(R.string.catalog_bond_title), stringResource(R.string.catalog_bond_desc), "bond_spam_screen", OtherSections.BLUETOOTH),
         ) else emptyList()
         sections += OtherSections.BLUETOOTH to (bleSpamCards + listOf(
             FunctionDestination(Icons.Default.BluetoothAudio, audioScanTitle, audioScanDesc, "other/audio_scanner", OtherSections.BLUETOOTH),
             FunctionDestination(Icons.Default.ElectricScooter, scooterTitle, scooterDesc, "other/scooter_hack", OtherSections.BLUETOOTH),
-            FunctionDestination(Icons.Default.Bluetooth, "فاحص إن آر إف", nrfDesc, "other/nrf_scanner", OtherSections.BLUETOOTH),
-            FunctionDestination(Icons.Default.Chat, "محادثة دولفي", chatDesc, "other/dolphy_chat_global", OtherSections.BLUETOOTH),
+            FunctionDestination(Icons.Default.Bluetooth, stringResource(R.string.catalog_nrf_title), nrfDesc, "other/nrf_scanner", OtherSections.BLUETOOTH),
+            FunctionDestination(Icons.Default.Chat, stringResource(R.string.catalog_chat_title), chatDesc, "other/dolphy_chat_global", OtherSections.BLUETOOTH),
             FunctionDestination(Icons.Default.Keyboard, hidTitle, hidDesc, "hid", OtherSections.BLUETOOTH),
-            FunctionDestination(Icons.Default.BluetoothDisabled, "أداة تشويش البلوتوث", "اختبار ضغط اتصال البلوتوث", "other/bluetooth_jammer", OtherSections.BLUETOOTH),
+            FunctionDestination(Icons.Default.BluetoothDisabled, stringResource(R.string.catalog_bluetooth_test_title), stringResource(R.string.catalog_bluetooth_test_desc), "other/bluetooth_jammer", OtherSections.BLUETOOTH),
         ) + plugins(OtherSections.BLUETOOTH))
         sections += OtherSections.OTHER to listOf(
             FunctionDestination(Icons.Outlined.Nfc, nfcTitle, nfcDesc, "other/nfc_tools", OtherSections.OTHER),
             FunctionDestination(Icons.Default.QrCodeScanner, qrTitle, qrDesc, "other/qr_tools", OtherSections.OTHER),
-            FunctionDestination(Icons.Filled.WifiOff, "اختبارات الشبكة اللاسلكية", netHubDesc, "other/network_diagnostic_hub", OtherSections.OTHER),
+            FunctionDestination(Icons.Filled.WifiOff, stringResource(R.string.catalog_network_title), netHubDesc, "other/network_diagnostic_hub", OtherSections.OTHER),
             FunctionDestination(Icons.Default.Cast, tvCastTitle, tvCastDesc, "other/smarttv_cast", OtherSections.OTHER),
             FunctionDestination(Icons.Default.Router, lanTitle, lanDesc, "other/lan_scanner", OtherSections.OTHER),
         ) + plugins(OtherSections.OTHER)
