@@ -1306,7 +1306,7 @@ private fun LiquidGlassBottomNavigation(
         LiquidBottomTab(onClick = onBluetoothClick) {
             Icon(
                 imageVector = Icons.Default.Bluetooth,
-                contentDescription = "Bluetooth",
+                contentDescription = "البلوتوث",
                 tint = iconTint,
                 modifier = Modifier.size(26.dp),
             )
@@ -1314,7 +1314,7 @@ private fun LiquidGlassBottomNavigation(
         LiquidBottomTab(onClick = onOtherClick) {
             Icon(
                 imageVector = Icons.Default.Extension,
-                contentDescription = "Other",
+                contentDescription = "أخرى",
                 tint = iconTint,
                 modifier = Modifier.size(26.dp),
             )
@@ -1322,7 +1322,7 @@ private fun LiquidGlassBottomNavigation(
         LiquidBottomTab(onClick = onSettingsClick) {
             Icon(
                 imageVector = Icons.Default.Settings,
-                contentDescription = "Settings",
+                contentDescription = "الإعدادات",
                 tint = iconTint,
                 modifier = Modifier.size(26.dp),
             )
@@ -1710,32 +1710,32 @@ private fun AdvertiseSpamScreen(viewModel: SpamViewModel) {
             onDismiss = { showAddDialog = false },
             onAdd = { name, companyCodeRaw, payload, randomizeMac, intervalRaw ->
                 if (name.isBlank()) {
-                    Toast.makeText(context, "Name is required", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "الاسم مطلوب", Toast.LENGTH_SHORT).show()
                     return@AdvertiseAddDialog
                 }
 
                 val companyCode = try {
                     HexUtils.parseCompanyCode(companyCodeRaw)
                 } catch (e: IllegalArgumentException) {
-                    Toast.makeText(context, e.message ?: "Invalid company code", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, e.message ?: "رمز الشركة غير صالح", Toast.LENGTH_SHORT).show()
                     return@AdvertiseAddDialog
                 }
 
                 val payloadBytes = try {
                     HexUtils.hexToByteArray(payload)
                 } catch (e: IllegalArgumentException) {
-                    Toast.makeText(context, e.message ?: "Invalid hex payload", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, e.message ?: "البيانات الست عشرية غير صالحة", Toast.LENGTH_SHORT).show()
                     return@AdvertiseAddDialog
                 }
 
                 if (payloadBytes.size + 4 > 31) {
-                    Toast.makeText(context, "Payload too long for legacy advertising", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "البيانات أطول من الحد المسموح للبث التقليدي", Toast.LENGTH_SHORT).show()
                     return@AdvertiseAddDialog
                 }
 
                 val interval = intervalRaw.toIntOrNull() ?: 200
                 if (interval !in 200..1000) {
-                    Toast.makeText(context, "Interval must be 200-1000 ms", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "يجب أن تكون الفترة بين 200 و1000 ملي ثانية", Toast.LENGTH_SHORT).show()
                     return@AdvertiseAddDialog
                 }
 
@@ -1766,28 +1766,28 @@ private fun AdvertiseSpamScreen(viewModel: SpamViewModel) {
             onDismiss = { editingPreset = null },
             onAdd = { name, companyCodeRaw, payload, randomizeMac, intervalRaw ->
                 if (name.isBlank()) {
-                    Toast.makeText(ctx, "Name is required", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(ctx, "الاسم مطلوب", Toast.LENGTH_SHORT).show()
                     return@AdvertiseAddDialog
                 }
                 val companyCode = try {
                     HexUtils.parseCompanyCode(companyCodeRaw)
                 } catch (e: IllegalArgumentException) {
-                    Toast.makeText(ctx, e.message ?: "Invalid company code", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(ctx, e.message ?: "رمز الشركة غير صالح", Toast.LENGTH_SHORT).show()
                     return@AdvertiseAddDialog
                 }
                 val payloadBytes = try {
                     HexUtils.hexToByteArray(payload)
                 } catch (e: IllegalArgumentException) {
-                    Toast.makeText(ctx, e.message ?: "Invalid hex payload", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(ctx, e.message ?: "البيانات الست عشرية غير صالحة", Toast.LENGTH_SHORT).show()
                     return@AdvertiseAddDialog
                 }
                 if (payloadBytes.size + 4 > 31) {
-                    Toast.makeText(ctx, "Payload too long for legacy advertising", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(ctx, "البيانات أطول من الحد المسموح للبث التقليدي", Toast.LENGTH_SHORT).show()
                     return@AdvertiseAddDialog
                 }
                 val interval = intervalRaw.toIntOrNull() ?: 200
                 if (interval !in 200..1000) {
-                    Toast.makeText(ctx, "Interval must be 200-1000 ms", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(ctx, "يجب أن تكون الفترة بين 200 و1000 ملي ثانية", Toast.LENGTH_SHORT).show()
                     return@AdvertiseAddDialog
                 }
                 viewModel.updateAdvertisePreset(
@@ -1922,7 +1922,7 @@ private fun AdvertiseSpamScreen(viewModel: SpamViewModel) {
                                     }) {
                                         Icon(
                                             imageVector = Icons.Default.PlayArrow,
-                                            contentDescription = "Start",
+                                            contentDescription = "بدء",
                                             tint = accent
                                         )
                                     }
@@ -1933,7 +1933,7 @@ private fun AdvertiseSpamScreen(viewModel: SpamViewModel) {
                                     }) {
                                         Icon(
                                             imageVector = Icons.Default.Stop,
-                                            contentDescription = "Stop",
+                                            contentDescription = "إيقاف",
                                             tint = accent
                                         )
                                     }
@@ -2288,7 +2288,7 @@ internal fun RandomExternalDolphinAnimation(modifier: Modifier = Modifier) {
         if (frameBitmap != null) {
             Image(
                 bitmap = frameBitmap,
-                contentDescription = "Random dolphin animation",
+                contentDescription = "حركة شعار الدلفين العشوائية",
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(2f),
@@ -2827,14 +2827,14 @@ private fun buildBleSectionModeGroups(context: Context, section: BleSection): Li
                     }
                 ),
                 BleModeGroup(
-                    title = "iCloud Spoof",
+                    title = "انتحال آي كلاود",
                     modes = listOf(Pair(SpamType.CONTINUITY, ContinuityMode(ContinuityType.ICLOUD_SPOOF, false))),
                     items = icloudItems.map { device ->
                         BleDeviceItem(device.name) { ContinuitySingleSpam(device, false) }
                     }
                 ),
                 BleModeGroup(
-                    title = "Nearby Info",
+                    title = "معلومات الأجهزة القريبة",
                     modes = listOf(Pair(SpamType.CONTINUITY, ContinuityMode(ContinuityType.NEARBY_INFO, false))),
                     items = nearbyItems.map { device ->
                         BleDeviceItem(device.name) { ContinuitySingleSpam(device, false) }
@@ -2927,10 +2927,10 @@ private fun buildBleSectionModeGroups(context: Context, section: BleSection): Li
         BleSection.PHANTOM -> {
             listOf(
                 BleModeGroup(
-                    title = "Phantom Spammer",
+                    title = "أداة الإرسال الوهمي",
                     modes = emptyList(),
                     items = listOf(
-                        BleDeviceItem("Bluetooth Phantom") { BluetoothPhantomSpammer() }
+                        BleDeviceItem("بلوتوث وهمي") { BluetoothPhantomSpammer() }
                     )
                 )
             )
@@ -3053,7 +3053,7 @@ private fun BleSectionContent(section: BleSection, onBack: () -> Unit) {
                     ) {
                         Icon(
                             imageVector = if (isExpanded) Icons.Default.KeyboardArrowDown else Icons.Default.KeyboardArrowRight,
-                            contentDescription = "Expand",
+                            contentDescription = "توسيع",
                             tint = MaterialTheme.colorScheme.onBackground
                         )
                         Spacer(modifier = Modifier.width(6.dp))
@@ -3329,7 +3329,7 @@ fun LevelUpAnimation(
         if (frameBitmap != null) {
             Image(
                 bitmap = frameBitmap,
-                contentDescription = "Level up animation",
+                contentDescription = "حركة الارتقاء بالمستوى",
                 modifier = Modifier.fillMaxSize().clip(RoundedCornerShape(12.dp)),
                 contentScale = ContentScale.Fit,
                 colorFilter = ColorFilter.colorMatrix(ColorMatrix(floatArrayOf(
@@ -3488,7 +3488,7 @@ fun DolphyScreen(viewModel: DolphyViewModel, navController: NavController? = nul
 
                 Image(
                     painter = painterResource(id = portrait),
-                    contentDescription = "Portrait",
+                    contentDescription = "الصورة الشخصية",
                     modifier = Modifier
                         .size(90.dp)
                         .clip(RoundedCornerShape(12.dp))
@@ -3533,7 +3533,7 @@ fun DolphyScreen(viewModel: DolphyViewModel, navController: NavController? = nul
                                 ) {
                                     Icon(
                                         Icons.Filled.Star,
-                                        contentDescription = "Customize Animations",
+                                        contentDescription = "تخصيص الحركات",
                                         tint = if (isLiquidGlassChrome()) Color.Black
                                         else accentColor,
                                         modifier = Modifier.size(18.dp)
@@ -3547,7 +3547,7 @@ fun DolphyScreen(viewModel: DolphyViewModel, navController: NavController? = nul
                             ) {
                                 Icon(
                                     Icons.Filled.Info,
-                                    contentDescription = "Stats",
+                                    contentDescription = "الإحصائيات",
                                     tint = if (isLiquidGlassChrome()) Color.Black
                                     else accentColor.copy(alpha = 0.6f),
                                     modifier = Modifier.size(18.dp)
@@ -3572,7 +3572,7 @@ fun DolphyScreen(viewModel: DolphyViewModel, navController: NavController? = nul
                         )
                         Icon(
                             Icons.Filled.Edit,
-                            contentDescription = "Rename",
+                            contentDescription = "إعادة التسمية",
                             tint = accentColor.copy(alpha = 0.5f),
                             modifier = Modifier.size(16.dp)
                         )
@@ -4178,11 +4178,11 @@ fun DeviceItem(device: BluetoothDevice, onDeviceSelected: (BluetoothDevice) -> U
             .padding(12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Icon(icon, contentDescription = "Device Type", tint = MaterialTheme.colorScheme.onSurfaceVariant)
+        Icon(icon, contentDescription = "نوع الجهاز", tint = MaterialTheme.colorScheme.onSurfaceVariant)
         Spacer(modifier = Modifier.width(16.dp))
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = if (!hasPermission) "No permission" else (device.name ?: "Unknown device"),
+                text = if (!hasPermission) "لا توجد صلاحية" else (device.name ?: "جهاز غير معروف"),
                 color = MaterialTheme.colorScheme.onBackground,
                 style = MaterialTheme.typography.bodyLarge
             )
@@ -4244,7 +4244,7 @@ fun OnboardingSetupScreen(viewModel: SpamViewModel) {
 
             Image(
                 painter = painterResource(id = R.drawable.dolphin_cool),
-                contentDescription = "Cool Dolphin",
+                contentDescription = "دولفي",
                 modifier = Modifier
                     .size(180.dp)
                     .padding(vertical = 16.dp),
@@ -4322,7 +4322,7 @@ fun OnboardingSetupScreen(viewModel: SpamViewModel) {
                           if (!copied) {
                             val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                             val invisibleName = "\u2800\u2800\u2800"
-                            val clip = ClipData.newPlainText("invisible name", invisibleName)
+                            val clip = ClipData.newPlainText("اسم مخفي", invisibleName)
                             clipboard.setPrimaryClip(clip)
                             context.startActivity(Intent(Settings.ACTION_BLUETOOTH_SETTINGS))
                             copied = true
