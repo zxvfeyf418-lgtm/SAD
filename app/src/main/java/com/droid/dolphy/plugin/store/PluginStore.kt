@@ -73,12 +73,15 @@ data class StorePlugin(
         get() = description.lineSequence().firstOrNull { it.isNotBlank() }?.trim().orEmpty()
 
     val displayName: String
-        get() = translatedName?.takeIf { it.isNotBlank() }
+        get() = ArabicPluginCatalog.find(file)?.title
+            ?: translatedName?.takeIf { it.isNotBlank() }
             ?: name.takeIf { value -> value.any { it in '\u0600'..'\u06FF' } }
             ?: "إضافة"
 
     val displayDescription: String
         get() {
+            ArabicPluginCatalog.find(file)?.let { return it.description }
+
             val arabicDescription = translatedDescription
                 ?.takeIf { value -> value.isNotBlank() && value.any { it in '\u0600'..'\u06FF' } }
                 ?: description.takeIf { value -> value.any { it in '\u0600'..'\u06FF' } }
