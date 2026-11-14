@@ -46,15 +46,15 @@ fun AccentColorScreen(viewModel: SpamViewModel, onNavigateBack: () -> Unit) {
 
     data class Theme(val name: String, val accent: Color, val gradientColors: List<Color>, val isAdaptive: Boolean = false)
     val baseThemes = listOf(
-        Theme("Dolphy", OrangeAccent, listOf(OrangeAccent, Color(0xFFFF6600), Color(0xFFFF3300))),
-        Theme("Red", RedThemeAccent, listOf(Color.Red, Color(0xFF990000), Color.Black)),
-        Theme("Green", GreenThemeAccent, listOf(Color.Green, Color.Yellow, Color.Green)),
-        Theme("Purple", PurpleThemeAccent, listOf(Color(0xFF8800FF), Color(0xFF4400FF), PurpleThemeAccent)),
-        Theme("Cyan", CyanThemeAccent, listOf(Color.Cyan, Color.Blue, Color(0xFF0099FF)))
+        Theme("دولفي", OrangeAccent, listOf(OrangeAccent, Color(0xFFFF6600), Color(0xFFFF3300))),
+        Theme("أحمر", RedThemeAccent, listOf(Color.Red, Color(0xFF990000), Color.Black)),
+        Theme("أخضر", GreenThemeAccent, listOf(Color.Green, Color.Yellow, Color.Green)),
+        Theme("بنفسجي", PurpleThemeAccent, listOf(Color(0xFF8800FF), Color(0xFF4400FF), PurpleThemeAccent)),
+        Theme("سماوي", CyanThemeAccent, listOf(Color.Cyan, Color.Blue, Color(0xFF0099FF)))
     )
 
     val themes = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-        listOf(Theme("Adaptive", MaterialTheme.colorScheme.primary, listOf(MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.secondary, MaterialTheme.colorScheme.tertiary), true)) + baseThemes
+        listOf(Theme("حسب النظام", MaterialTheme.colorScheme.primary, listOf(MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.secondary, MaterialTheme.colorScheme.tertiary), true)) + baseThemes
     } else {
         baseThemes
     }
