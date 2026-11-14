@@ -5,6 +5,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.Nfc
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -14,6 +17,7 @@ import androidx.navigation.NavController
 import com.droid.dolphy.hid.HidKeyboardActivity
 import com.droid.dolphy.plugin.PluginIcons
 import com.droid.dolphy.plugin.PluginRegistry
+import com.droid.dolphy.plugin.store.PluginTranslator
 import com.droid.dolphy.plugin.model.OtherSections
 
 data class FunctionDestination(
@@ -32,6 +36,34 @@ data class FunctionDestination(
 fun functionDestinationSections(): List<Pair<String, List<FunctionDestination>>> {
     val revision by PluginRegistry.revision.collectAsState()
     val pluginCards by PluginRegistry.otherCards.collectAsState()
+    val context = LocalContext.current
+    var translatedPluginCards by remember { mutableStateOf<Map<String, Pair<String, String>>>(emptyMap()) }
+
+    LaunchedEffect(revision, pluginCards) {
+        PluginTranslator.initialize(context)
+        val translated = linkedMapOf<String, Pair<String, String>>()
+        pluginCards.forEach { card ->
+            fun hasArabic(value: String): Boolean = value.any { it in '\\u0600'..'\\u06FF' }
+            val translatedTitle = if (hasArabic(card.title)) card.title else PluginTranslator.translate(card.title)
+            val translatedDescription = if (hasArabic(card.description)) card.description else PluginTranslator.translate(card.description)
+            val title = translatedTitle?.takeIf { hasArabic(it) }
+                ?: card.title.takeIf { hasArabic(it) }
+                ?: "إضافة"
+            val description = translatedDescription?.takeIf { hasArabic(it) }
+                ?: card.description.takeIf { hasArabic(it) }
+                ?: "وصف الإضافة غير متوفر بالعربية حالياً."
+            val names = listOf(card.title, translatedTitle.orEmpty(), title).distinct().filter { it.isNotBlank() }
+            val cleanDescription = names.fold(description.trim()) { value, name ->
+                value.replaceFirst(
+                    Regex("^\\\\s*${Regex.escape(name)}\\\\s*[:：–—-]\\\\s*", RegexOption.IGNORE_CASE),
+                    "",
+                )
+            }.trim().ifBlank { description.trim() }
+            translated["${card.pluginId}/${card.screenId}"] = title to cleanDescription
+        }
+        translatedPluginCards = translated
+    }
+
     val bySection = androidx.compose.runtime.remember(revision, pluginCards) { PluginRegistry.otherBySection() }
 
     val irFlipperTitle = stringResource(R.string.ir_flipper_remotes)
@@ -65,10 +97,11 @@ fun functionDestinationSections(): List<Pair<String, List<FunctionDestination>>>
     return run {
         fun plugins(section: String): List<FunctionDestination> {
             return bySection[section].orEmpty().map { card ->
+                val translated = translatedPluginCards["${card.pluginId}/${card.screenId}"]
                 FunctionDestination(
                     icon = PluginIcons.resolve(card.icon),
-                    title = card.title,
-                    description = card.description,
+                    title = translated?.first ?: card.title.takeIf { it.any { ch -> ch in '\\u0600'..'\\u06FF' } } ?: "إضافة",
+                    description = translated?.second ?: card.description.takeIf { it.any { ch -> ch in '\\u0600'..'\\u06FF' } } ?: "وصف الإضافة غير متوفر بالعربية حالياً.",
                     route = "plugin/${card.pluginId}/${card.screenId}",
                     section = section,
                     isPlugin = true,
