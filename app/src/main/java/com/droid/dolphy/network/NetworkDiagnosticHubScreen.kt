@@ -845,26 +845,26 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
             if (gateway != null) {
                 hosts[gateway] = HubLanHost(
                     ip = gateway,
-                    title = "Gateway / router",
-                    subtitle = "DNS · DHCP · internet",
+                    title = "البوابة أو الموجّه",
+                    subtitle = "نظام أسماء النطاقات · توزيع العناوين · الإنترنت",
                     isGateway = true,
                 )
             }
             if (self != null) {
                 hosts[self] = HubLanHost(
                     ip = self,
-                    title = "This device",
-                    subtitle = "you",
+                    title = "هذا الجهاز",
+                    subtitle = "جهازك",
                     isSelf = true,
                 )
             }
             readArpTable().forEach { (ip, mac) ->
                 if (!hosts.containsKey(ip)) {
-                    hosts[ip] = HubLanHost(ip, ip, "MAC $mac")
+                    hosts[ip] = HubLanHost(ip, ip, "عنوان الجهاز $mac")
                 } else {
                     val old = hosts[ip]!!
                     if (old.subtitle.isBlank()) {
-                        hosts[ip] = old.copy(subtitle = "MAC $mac")
+                        hosts[ip] = old.copy(subtitle = "عنوان الجهاز $mac")
                     }
                 }
             }
@@ -919,9 +919,9 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
             readArpTable().forEach { (ip, mac) ->
                 val old = hosts[ip]
                 if (old != null && !old.subtitle.contains("MAC")) {
-                    hosts[ip] = old.copy(subtitle = listOf(old.subtitle, "MAC $mac").filter { it.isNotBlank() }.joinToString(" · "))
+                    hosts[ip] = old.copy(subtitle = listOf(old.subtitle, "عنوان الجهاز $mac").filter { it.isNotBlank() }.joinToString(" · "))
                 } else if (old == null) {
-                    hosts[ip] = HubLanHost(ip, ip, "MAC $mac")
+                    hosts[ip] = HubLanHost(ip, ip, "عنوان الجهاز $mac")
                 }
             }
             withContext(Dispatchers.Main) {
@@ -1281,7 +1281,7 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                                 contentPadding = 0.dp
                             ) {
                                 SignalRow(
-                                    title = "WI-FI DoS",
+                                    title = "اختبار ضغط الشبكة اللاسلكية",
                                     description = stringResource(R.string.wifi_stress_test),
                                     icon = Icons.Default.FlashOn,
                                     accentColor = MaterialTheme.colorScheme.primary,
@@ -1305,8 +1305,8 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                                 contentPadding = 0.dp
                             ) {
                                 SignalRow(
-                                    title = "Device DoS",
-                                    description = "DoS a specific device on the network",
+                                    title = "اختبار اتصال الجهاز",
+                                    description = "اختبار استجابة جهاز محدد على الشبكة",
                                     icon = Icons.Default.WifiOff,
                                     accentColor = Color(0xFFFF6D00),
                                     onClick = {
@@ -1323,7 +1323,7 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                                 contentPadding = 0.dp
                             ) {
                                 SignalRow(
-                                    title = "Pass Brute",
+                                    title = "اختبار كلمات المرور",
                                     description = stringResource(R.string.wifi_password_brute),
                                     icon = Icons.Default.SettingsEthernet,
                                     accentColor = Color(0xFFF44336),
@@ -1488,7 +1488,7 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                                     enabled = !lanScanning,
                                     modifier = Modifier.weight(1f),
                                 ) {
-                                    Text("Refresh")
+                                    Text("تحديث")
                                 }
                             }
                         }
