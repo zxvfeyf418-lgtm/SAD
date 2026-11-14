@@ -7,6 +7,7 @@ import androidx.compose.material.icons.outlined.Nfc
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -59,7 +60,7 @@ fun functionDestinationSections(): List<Pair<String, List<FunctionDestination>>>
                     "",
                 )
             }.trim().ifBlank { description.trim() }
-            translated["${card.pluginId}/${card.screenId}"] = title to cleanDescription
+            translated["${card.pluginId}/${card.screenId}/${card.title}"] = title to cleanDescription
         }
         translatedPluginCards = translated
     }
@@ -97,7 +98,7 @@ fun functionDestinationSections(): List<Pair<String, List<FunctionDestination>>>
     return run {
         fun plugins(section: String): List<FunctionDestination> {
             return bySection[section].orEmpty().map { card ->
-                val translated = translatedPluginCards["${card.pluginId}/${card.screenId}"]
+                val translated = translatedPluginCards["${card.pluginId}/${card.screenId}/${card.title}"]
                 FunctionDestination(
                     icon = PluginIcons.resolve(card.icon),
                     title = translated?.first ?: card.title.takeIf { it.any { ch -> ch in '\\u0600'..'\\u06FF' } } ?: "إضافة",
