@@ -447,7 +447,7 @@ private fun ScannerTab(
                             }
                         }
                         Text(device.address, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)
-                        Text("RSSI: ${device.rssi}", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)
+                        Text("قوة الإشارة: ${device.rssi}", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)
                         Text(stringResource(R.string.whisperpair_connecting_ru) + ": ${device.status}", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)
                         exploitResults[device.address]?.let {
                             val isConnecting = it.contains("Connecting", ignoreCase = true)
@@ -691,7 +691,7 @@ private fun TwsTab(
                         )
                         Text(device.address, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)
                         if (device.rssi != Short.MIN_VALUE.toInt()) {
-                            Text("RSSI: ${device.rssi}", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)
+                            Text("قوة الإشارة: ${device.rssi}", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)
                         }
                         exploitResults[device.address]?.let {
                             Text(
