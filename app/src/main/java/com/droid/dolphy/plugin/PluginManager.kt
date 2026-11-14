@@ -288,9 +288,9 @@ object PluginManager {
         return sessions[pluginId]?.renderScreen(screenId)
             ?: UiNode.Column(
                 listOf(
-                    UiNode.Text("Plugin not installed", "headlineSmall"),
+                    UiNode.Text("الإضافة غير مثبّتة", "headlineSmall"),
                     UiNode.Spacer(8f),
-                    UiNode.Text("id=$pluginId — import a .dolphyplugin via Plugin Manager", "bodyMedium"),
+                    UiNode.Text("المعرّف $pluginId — استورد ملف الإضافة من مدير الإضافات", "bodyMedium"),
                 ),
                 padding = 16f,
                 spacing = 8f,
