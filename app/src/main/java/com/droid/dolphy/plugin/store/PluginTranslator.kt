@@ -14,7 +14,6 @@ import java.io.ByteArrayOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
-import java.util.Locale
 import java.util.concurrent.ConcurrentHashMap
 
 
@@ -65,8 +64,8 @@ object PluginTranslator {
 
     private fun prefs() = appContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
-    fun deviceLang(): String =
-        if (Locale.getDefault().language.equals("ru", ignoreCase = true)) "ru" else "en"
+    // This build is Arabic-only: translate every plugin name and description into Arabic.
+    fun deviceLang(): String = "ar"
 
     fun cachedOnly(text: String, target: String = deviceLang()): String? {
         if (text.isBlank()) return null
