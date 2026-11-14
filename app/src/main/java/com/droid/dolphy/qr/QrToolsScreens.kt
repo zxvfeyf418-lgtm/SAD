@@ -414,14 +414,14 @@ fun QrDetailScreen(qrId: String, navController: NavController) {
                     com.droid.dolphy.AccentButton(
                         onClick = {
                             clipboardManager.setText(AnnotatedString(qr.content))
-                            Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "تم النسخ إلى الحافظة", Toast.LENGTH_SHORT).show()
                         },
                         colors = ButtonDefaults.buttonColors(containerColor = accentColor),
                         shape = RoundedCornerShape(12.dp)
                     ) {
                         Icon(Icons.Default.ContentCopy, null, tint = MaterialTheme.colorScheme.onPrimary)
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("Copy Content", color = MaterialTheme.colorScheme.onPrimary)
+                        Text("نسخ المحتوى", color = MaterialTheme.colorScheme.onPrimary)
                     }
                 }
             }
@@ -572,7 +572,7 @@ fun QrAudioSpooferScreen(
                     DolphyIconButton(
                         onClick = {
                             clipboardManager.setText(AnnotatedString(qrUrl))
-                            Toast.makeText(context, "URL copied to clipboard", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "تم نسخ الرابط إلى الحافظة", Toast.LENGTH_SHORT).show()
                         },
                         modifier = Modifier.size(32.dp)
                     ) {
@@ -588,7 +588,7 @@ fun QrAudioSpooferScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
 
-            Text("SELECT PAGE TYPE", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("اختر نوع الصفحة", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Box(modifier = Modifier.fillMaxWidth()) {
                 Card(
@@ -648,7 +648,7 @@ fun QrAudioSpooferScreen(
                     onClick = { htmlPickerLauncher.launch("*/*") },
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text("Replace HTML")
+                    Text("استبدال صفحة الويب")
                 }
             }
 
@@ -658,7 +658,7 @@ fun QrAudioSpooferScreen(
 
             val deviceCount by viewModel.deviceCount.collectAsState()
             Text("SOUNDBOARD", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
-            Text("Connected: $deviceCount devices", color = accentColor, fontSize = 11.sp, modifier = Modifier.fillMaxWidth())
+            Text("الأجهزة المتصلة: $deviceCount", color = accentColor, fontSize = 11.sp, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 SoundButton("", Icons.Default.Message, accentColor) { viewModel.sendCommand("PLAY:iphone_message.mp3") }
@@ -689,7 +689,7 @@ fun QrAudioSpooferScreen(
 
 
             var ttsText by remember { mutableStateOf("") }
-            Text("TEXT TO SPEECH", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("تحويل النص إلى كلام", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -700,7 +700,7 @@ fun QrAudioSpooferScreen(
                     value = ttsText,
                     onValueChange = { ttsText = it },
                     modifier = Modifier.weight(1f),
-                    placeholder = { Text("Enter text to say...", fontSize = 14.sp) },
+                    placeholder = { Text("أدخل النص المراد نطقه...", fontSize = 14.sp) },
                     colors = TextFieldDefaults.colors(
                         focusedContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.05f),
                         unfocusedContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.05f),
@@ -724,7 +724,7 @@ fun QrAudioSpooferScreen(
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier.height(52.dp)
                 ) {
-                    Text("Speak", color = MaterialTheme.colorScheme.onPrimary, fontWeight = FontWeight.Bold)
+                    Text("نطق", color = MaterialTheme.colorScheme.onPrimary, fontWeight = FontWeight.Bold)
                 }
             }
 
