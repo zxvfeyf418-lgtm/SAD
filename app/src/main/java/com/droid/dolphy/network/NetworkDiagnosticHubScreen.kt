@@ -1721,13 +1721,13 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                                     modifier = Modifier.size(48.dp)
                                 )
                                 Text(
-                                    text = "No Wi-Fi connection",
+                                    text = "ماكو اتصال بشبكة الواي فاي",
                                     style = MaterialTheme.typography.headlineSmall,
                                     fontWeight = FontWeight.Bold,
                                     color = MaterialTheme.colorScheme.error
                                 )
                                 Text(
-                                    text = "Connect to a Wi-Fi network first",
+                                    text = "اتصل بشبكة واي فاي أولاً.",
                                     style = MaterialTheme.typography.bodyLarge,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
