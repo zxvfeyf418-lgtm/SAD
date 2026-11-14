@@ -589,7 +589,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                             SettingsItem(onClick = { uriHandler.openUri("https://instagram.com/2n5a") }) {
                                 Icon(Icons.Default.CameraAlt, null, tint = Color(0xFFF28A45), modifier = Modifier.size(23.dp))
                                 Spacer(Modifier.width(12.dp))
-                                Text("Instagram  ·  2n5a", style = MaterialTheme.typography.bodyLarge)
+                                Text("انستغرام  ·  2n5a", style = MaterialTheme.typography.bodyLarge)
                                 Spacer(Modifier.weight(1f))
                                 Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
                             }
@@ -597,7 +597,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                             SettingsItem(onClick = { uriHandler.openUri("https://t.me/e0a_e") }) {
                                 Icon(Icons.AutoMirrored.Filled.Send, null, tint = Color(0xFFF28A45), modifier = Modifier.size(23.dp))
                                 Spacer(Modifier.width(12.dp))
-                                Text("Telegram  ·  e0a_e", style = MaterialTheme.typography.bodyLarge)
+                                Text("تيليغرام  ·  e0a_e", style = MaterialTheme.typography.bodyLarge)
                                 Spacer(Modifier.weight(1f))
                                 Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
                             }
@@ -625,7 +625,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                             SettingsItem(onClick = { uriHandler.openUri("https://t.me/Dolphy_app_official") }) {
                                 Icon(Icons.AutoMirrored.Filled.Send, null, tint = accentColor, modifier = Modifier.size(24.dp))
                                 Spacer(Modifier.width(12.dp))
-                                Text("Dolphy dev", style = MaterialTheme.typography.bodyLarge)
+                                Text("مطوّر دولفي", style = MaterialTheme.typography.bodyLarge)
                                 Spacer(Modifier.weight(1f))
                                 Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
                             }
@@ -633,7 +633,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                             SettingsItem(onClick = { uriHandler.openUri("https://github.com/unvoiddd/Dolphy-App") }) {
                                 Icon(Icons.Default.Circle, null, tint = accentColor, modifier = Modifier.size(24.dp))
                                 Spacer(Modifier.width(12.dp))
-                                Text("Github", style = MaterialTheme.typography.bodyLarge)
+                                Text("غيت هب", style = MaterialTheme.typography.bodyLarge)
                                 Spacer(Modifier.weight(1f))
                                 Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
                             }
