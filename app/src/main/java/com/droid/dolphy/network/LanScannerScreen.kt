@@ -869,7 +869,7 @@ private fun DeviceCard(device: LanDevice, accent: Color) {
 
                 if (device.openPorts.isNotEmpty()) {
                     Text(
-                        text = "Ports: ${device.openPorts.joinToString(", ")}",
+                        text = "المنافذ: ${device.openPorts.joinToString(", ")}",
                         style = MaterialTheme.typography.labelSmall,
                         color = accent.copy(alpha = 0.6f)
                     )
