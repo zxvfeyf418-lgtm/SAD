@@ -4162,10 +4162,10 @@ fun DeviceItem(device: BluetoothDevice, onDeviceSelected: (BluetoothDevice) -> U
     }
 
     val deviceTypeText = when (device.type) {
-        BluetoothDevice.DEVICE_TYPE_CLASSIC -> "Classic"
-        BluetoothDevice.DEVICE_TYPE_LE -> "BLE"
-        BluetoothDevice.DEVICE_TYPE_DUAL -> "Dual"
-        else -> "Unknown"
+        BluetoothDevice.DEVICE_TYPE_CLASSIC -> "تقليدي"
+        BluetoothDevice.DEVICE_TYPE_LE -> "بلوتوث منخفض الطاقة"
+        BluetoothDevice.DEVICE_TYPE_DUAL -> "مزدوج"
+        else -> "غير معروف"
     }
 
     Row(
