@@ -517,7 +517,7 @@ private fun CameraResultCard(cam: CameraNetworkScanner.FoundCamera) {
                     fontWeight = FontWeight.SemiBold,
                 )
                 Text(
-                    "IP: ${cam.ip}",
+                    "عنوان الشبكة: ${cam.ip}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
