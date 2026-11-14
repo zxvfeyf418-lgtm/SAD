@@ -81,7 +81,7 @@ fun AccentColorScreen(viewModel: SpamViewModel, onNavigateBack: () -> Unit) {
                         onClick = onNavigateBack,
                         modifier = Modifier.align(Alignment.CenterStart)
                     ) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = accentColor)
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "رجوع", tint = accentColor)
                     }
                     Text(
                         text = stringResource(R.string.theme_selection_title),
@@ -96,7 +96,7 @@ fun AccentColorScreen(viewModel: SpamViewModel, onNavigateBack: () -> Unit) {
                         },
                         modifier = Modifier.align(Alignment.CenterEnd)
                     ) {
-                        Icon(Icons.Default.Add, contentDescription = "Add Color", tint = accentColor)
+                        Icon(Icons.Default.Add, contentDescription = "إضافة لون", tint = accentColor)
                     }
                 }
             }
@@ -258,7 +258,7 @@ fun AccentColorScreen(viewModel: SpamViewModel, onNavigateBack: () -> Unit) {
 
                     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                            Text("Red", color = Color(0xFFFF5252), fontWeight = FontWeight.SemiBold)
+                            Text("أحمر", color = Color(0xFFFF5252), fontWeight = FontWeight.SemiBold)
                             Text("$customR", fontWeight = FontWeight.Bold)
                         }
                         DolphySlider(
@@ -271,7 +271,7 @@ fun AccentColorScreen(viewModel: SpamViewModel, onNavigateBack: () -> Unit) {
 
                     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                            Text("Green", color = Color(0xFF69F0AE), fontWeight = FontWeight.SemiBold)
+                            Text("أخضر", color = Color(0xFF69F0AE), fontWeight = FontWeight.SemiBold)
                             Text("$customG", fontWeight = FontWeight.Bold)
                         }
                         DolphySlider(
@@ -284,7 +284,7 @@ fun AccentColorScreen(viewModel: SpamViewModel, onNavigateBack: () -> Unit) {
 
                     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                            Text("Blue", color = Color(0xFF448AFF), fontWeight = FontWeight.SemiBold)
+                            Text("أزرق", color = Color(0xFF448AFF), fontWeight = FontWeight.SemiBold)
                             Text("$customB", fontWeight = FontWeight.Bold)
                         }
                         DolphySlider(
@@ -352,7 +352,7 @@ fun ThemeModeScreen(viewModel: SpamViewModel, onNavigateBack: () -> Unit) {
                             onClick = onNavigateBack,
                             modifier = Modifier.align(Alignment.CenterStart)
                         ) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = accentColor)
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "رجوع", tint = accentColor)
                         }
                         Text(
                             text = stringResource(R.string.theme_selection_title),
