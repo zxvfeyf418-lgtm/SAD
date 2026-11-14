@@ -87,7 +87,7 @@ data class StorePlugin(
             val names = listOf(name, translatedName.orEmpty(), displayName).distinct().filter { it.isNotBlank() }
             val cleaned = names.fold(arabicDescription.trim()) { value, label ->
                 value.replaceFirst(
-                    Regex("^\\s*\${Regex.escape(label)}\\s*[:：–—-]\\s*", RegexOption.IGNORE_CASE),
+                    Regex("^\\s*${Regex.escape(label)}\\s*[:：–—-]\\s*", RegexOption.IGNORE_CASE),
                     "",
                 )
             }.trim()
