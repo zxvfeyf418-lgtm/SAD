@@ -348,7 +348,7 @@ fun NfcTagEmulationRunScreen(navController: NavController, tagId: Long) {
                 Text(
                     text = when {
                         !nfcOn -> stringResource(R.string.nfc_enable_instruction)
-                        else -> "NFC Forum Type 4"
+                        else -> "بطاقة اتصال قريب المدى من النوع الرابع"
                     },
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
