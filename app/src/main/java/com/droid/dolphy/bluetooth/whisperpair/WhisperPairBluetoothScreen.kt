@@ -84,7 +84,7 @@ private enum class Screen { Scanner, Paired, Recordings, Tws }
 
 private data class TwsTarget(val name: String?, val address: String, val rssi: Int) {
     val displayName: String
-        get() = name ?: "Unknown device"
+        get() = name ?: "جهاز غير معروف"
 }
 
 data class AudioConnectionState(
