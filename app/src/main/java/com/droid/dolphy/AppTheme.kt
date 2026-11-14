@@ -44,10 +44,30 @@ fun DolphyTheme(
 ) {
     val context = LocalContext.current
 
-    val expressiveScheme = if (isAdaptiveColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-        if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-    } else remember(accentColor, darkTheme) {
-        googleExpressiveColorScheme(accentColor, darkTheme)
+    // 2N5A uses one fixed dark brand palette across every screen.
+    val expressiveScheme = remember {
+        googleExpressiveColorScheme(PurpleThemeAccent, true).copy(
+            primary = PurpleThemeAccent,
+            onPrimary = Color.White,
+            secondary = Color(0xFFE02ACB),
+            onSecondary = Color.White,
+            tertiary = Color(0xFFF28A45),
+            onTertiary = Color(0xFF18120D),
+            background = DarkBackground,
+            onBackground = TextPrimary,
+            surface = BrighterSurface,
+            onSurface = TextPrimary,
+            surfaceVariant = SurfaceElevated,
+            onSurfaceVariant = TextSecondary,
+            surfaceTint = PurpleThemeAccent,
+            outline = CardBorderDark,
+            outlineVariant = CardBorderDark,
+            surfaceContainer = BrighterSurface,
+            surfaceContainerHigh = SurfaceElevated,
+            surfaceContainerHighest = SurfaceHighlight,
+            surfaceContainerLow = DarkBackground,
+            surfaceContainerLowest = DarkBackground
+        )
     }
 
     val typography = if (expressiveEnabled) {
