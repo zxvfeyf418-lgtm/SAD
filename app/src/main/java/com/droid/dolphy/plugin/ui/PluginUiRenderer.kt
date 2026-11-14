@@ -389,7 +389,7 @@ fun PluginUiRenderer(
                 enabled = node.enabled,
                 containerColor = accent,
             ) {
-                Text(node.text)
+                Text(tr(node.text))
             }
         }
 
@@ -671,7 +671,7 @@ fun PluginUiRenderer(
                     .verticalScroll(scroll),
             ) {
                 Text(
-                    node.text.ifBlank { " " },
+                    tr(node.text).ifBlank { " " },
                     style = MaterialTheme.typography.bodySmall.copy(fontFamily = FontFamily.Monospace),
                     color = Color(0xFFB2FF59),
                 )
@@ -730,7 +730,7 @@ private fun PluginDropdown(
             onValueChange = {},
             readOnly = true,
             enabled = enabled,
-            label = if (label.isNotBlank()) ({ Text(label) }) else null,
+            label = if (label.isNotBlank()) ({ Text(tr(label)) }) else null,
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
             modifier = Modifier
                 .menuAnchor()
@@ -742,7 +742,7 @@ private fun PluginDropdown(
         ) {
             options.forEach { (optLabel, value) ->
                 DropdownMenuItem(
-                    text = { Text(optLabel) },
+                    text = { Text(tr(optLabel)) },
                     onClick = {
                         expanded = false
                         onSelect(value)
@@ -926,7 +926,7 @@ private fun PluginAssetImage(node: UiNode.Image) {
             contentAlignment = Alignment.Center,
         ) {
             Text(
-                "img?",
+                "صورة غير متاحة",
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
