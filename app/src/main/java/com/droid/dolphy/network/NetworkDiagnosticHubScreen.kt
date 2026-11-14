@@ -1365,12 +1365,12 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                             verticalArrangement = Arrangement.spacedBy(12.dp)
                         ) {
                             Text(
-                                text = "Device DoS",
+                                text = "اختبار اتصال الجهاز",
                                 style = MaterialTheme.typography.headlineSmall,
                                 fontWeight = FontWeight.Bold,
                             )
                             Text(
-                                text = "Select a device on network \"${currentDialogNetwork.ssid}\"",
+                                text = "اختر جهازاً على الشبكة \"${currentDialogNetwork.ssid}\"",
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
@@ -1381,14 +1381,14 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                                 ) {
                                     CircularProgressIndicator(modifier = Modifier.size(18.dp), strokeWidth = 2.dp)
                                     Text(
-                                        "Scanning network… ${lanHosts.size}",
+                                        "جارٍ فحص الشبكة… ${lanHosts.size}",
                                         style = MaterialTheme.typography.labelLarge,
                                         color = MaterialTheme.colorScheme.primary,
                                     )
                                 }
                             } else {
                                 Text(
-                                    "Found: ${lanHosts.size}",
+                                    "الأجهزة المكتشفة: ${lanHosts.size}",
                                     style = MaterialTheme.typography.labelLarge,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 )
@@ -1404,7 +1404,7 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                                 if (lanHosts.isEmpty() && !lanScanning) {
                                     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                                         Text(
-                                            "No devices found.\nConnect to this Wi‑Fi network.",
+                                            "لم يتم العثور على أجهزة.\nاتصل بهذه الشبكة اللاسلكية.",
                                             textAlign = TextAlign.Center,
                                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                                         )
