@@ -108,7 +108,7 @@ fun DolphyZeroScreen(navController: NavController) {
                 ZeroMenuItem("IJ", "تشويش الأشعة تحت الحمراء", ZeroAction.Navigate("ir_jammer")),
                 ZeroMenuItem("AR", "الأرشيف", ZeroAction.Navigate("user_ir_remotes")),
                 ZeroMenuItem("JS", "مشغّل جافاسكربت", ZeroAction.ShowMessage("مشغّل جافاسكربت غير متوفر في إصدار أندرويد")),
-                ZeroMenuItem("UP", "المحدّث", ZeroAction.ShowMessage("أداة التحديث متاحة في البرنامج الثابت فقط")
+                ZeroMenuItem("UP", "المحدّث", ZeroAction.ShowMessage("أداة التحديث متاحة في البرنامج الثابت فقط"))
             )
         )
     }
