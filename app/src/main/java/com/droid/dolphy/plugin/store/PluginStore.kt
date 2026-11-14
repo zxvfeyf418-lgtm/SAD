@@ -94,7 +94,7 @@ object PluginStoreRepository {
 
     private val DEFAULT_SOURCE = StoreSource(
         id = "official",
-        label = "Dolphy Plugins",
+        label = "إضافات دولفي",
         indexUrl = "https://raw.githubusercontent.com/unvoiddd/Dolphy-app-Plugins/HEAD/index.json",
         builtIn = true,
     )
