@@ -429,7 +429,7 @@ private fun ScreenshotSpamScreen(
                 context.contentResolver.query(uri, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)?.use { cursor ->
                     if (cursor.moveToFirst()) cursor.getString(0) else null
                 }
-            }.getOrNull()?.removeSuffix(".txt")?.ifBlank { null } ?: "Script ${scripts.size + 1}"
+            }.getOrNull()?.removeSuffix(".txt")?.ifBlank { null } ?: "نص برمجي ${scripts.size + 1}"
 
             if (content.isBlank()) {
                 Toast.makeText(context, context.getString(R.string.hid_ducky_empty), Toast.LENGTH_SHORT).show()
