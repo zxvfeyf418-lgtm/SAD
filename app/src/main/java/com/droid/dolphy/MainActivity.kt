@@ -1847,7 +1847,7 @@ private fun AdvertiseSpamScreen(viewModel: SpamViewModel) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Advertiser",
+                text = "إعدادات البث",
                 style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.onBackground
             )
@@ -2578,7 +2578,7 @@ fun BleSpamScreen(viewModel: SpamViewModel, onSectionClick: (BleSection) -> Unit
 
         item {
             Text(
-                text = "All in one",
+                text = "جميع الوظائف في مكان واحد",
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier.fillMaxWidth()
@@ -2765,7 +2765,7 @@ private fun BleSectionHeader(section: BleSection, onClick: () -> Unit) {
     ) {
         Image(
             painter = painterResource(id = logoRes),
-            contentDescription = "${section.title} logo",
+            contentDescription = "شعار ${section.title}",
             modifier = Modifier
                 .height(18.dp)
                 .padding(end = 8.dp),
@@ -3029,7 +3029,7 @@ private fun BleSectionContent(section: BleSection, onBack: () -> Unit) {
             item {
                 val deviceCount = groups.sumOf { it.items.size }
                 Text(
-                    text = "$deviceCount Devices in ${groups.size} Lists",
+                    text = "$deviceCount جهازاً ضمن ${groups.size} قوائم",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.fillMaxWidth(),
