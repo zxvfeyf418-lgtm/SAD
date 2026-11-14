@@ -102,8 +102,8 @@ fun functionDestinationSections(): List<Pair<String, List<FunctionDestination>>>
                 val translated = translatedPluginCards["${card.pluginId}/${card.screenId}/${card.title}"]
                 FunctionDestination(
                     icon = PluginIcons.resolve(card.icon),
-                    title = translated?.first ?: card.title.takeIf { it.any { ch -> ch in '\\u0600'..'\\u06FF' } } ?: "إضافة",
-                    description = translated?.second ?: card.description.takeIf { it.any { ch -> ch in '\\u0600'..'\\u06FF' } } ?: "وصف الإضافة غير متوفر بالعربية حالياً.",
+                    title = translated?.first ?: card.title.takeIf { it.any { ch -> ch in '\u0600'..'\u06FF' } } ?: "إضافة",
+                    description = translated?.second ?: card.description.takeIf { it.any { ch -> ch in '\u0600'..'\u06FF' } } ?: "وصف الإضافة غير متوفر بالعربية حالياً.",
                     route = "plugin/${card.pluginId}/${card.screenId}",
                     section = section,
                     isPlugin = true,
