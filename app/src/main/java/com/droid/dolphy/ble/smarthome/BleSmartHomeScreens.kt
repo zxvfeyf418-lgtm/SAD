@@ -200,7 +200,7 @@ fun BleSmartHomeScanScreen(navController: NavController) {
                 return@Column
             }
             if (bluetoothAdapter.isEnabled != true) {
-                Text("Bluetooth is off. Enable Bluetooth.", color = MaterialTheme.colorScheme.onBackground)
+                Text("البلوتوث متوقف. فعّله للمتابعة.", color = MaterialTheme.colorScheme.onBackground)
                 return@Column
             }
 
