@@ -326,7 +326,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                         MaterialCard(
                             modifier = Modifier.fillMaxWidth(),
                             accentColor = accentColor,
-                            shape = getSegmentedShape(6, interfaceItems),
+                            shape = getSegmentedShape(3, interfaceItems),
                             contentPadding = 10.dp
                         ) {
                             Column(verticalArrangement = Arrangement.spacedBy(M3SegmentedListItemSpacing)) {
