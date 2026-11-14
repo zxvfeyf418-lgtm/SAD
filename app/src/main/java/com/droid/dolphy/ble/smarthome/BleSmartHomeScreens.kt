@@ -252,7 +252,7 @@ fun BleSmartHomeScanScreen(navController: NavController) {
                     M3SegmentedListItem(
                         index = index,
                         count = count,
-                        headline = item.vendor.takeIf { it != "Unknown" } ?: "Smart Light",
+                        headline = item.vendor.takeIf { it != "غير معروف" } ?: "مصباح ذكي",
                         supporting = "${item.address} • ${item.rssi} dBm",
                         leadingIcon = Icons.Default.Lightbulb,
                         leadingIconTint = accent,
@@ -356,7 +356,7 @@ fun BleSmartHomeDeviceScreen(navController: NavController, address: String) {
 
             MaterialCard(Modifier.fillMaxWidth(), accentColor = accent, cornerRadius = 18.dp) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-                    Text("Color wheel", fontWeight = FontWeight.SemiBold)
+                    Text("عجلة الألوان", fontWeight = FontWeight.SemiBold)
                     ColorWheel(
                         color = color,
                         onColorChange = {
