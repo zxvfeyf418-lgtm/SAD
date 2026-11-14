@@ -40,7 +40,7 @@
                         android:id="@+id/main_item_ble"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="BLE"
+                        android:text="بلوتوث"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         android:textColor="#FFFFFF"
@@ -50,7 +50,7 @@
                         android:id="@+id/main_item_ir"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="IR"
+                        android:text="أشعة"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         android:textColor="#FFFFFF"
@@ -69,7 +69,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="14dp"
                         android:scaleType="fitCenter"
-                        android:contentDescription="BLE"
+                        android:contentDescription="البلوتوث"
                         android:src="@drawable/widget_ble_pairing" />
 
                     <LinearLayout
