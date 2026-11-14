@@ -10,7 +10,7 @@
         android:id="@+id/widget_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BLE spam"
+        android:text="فحص البلوتوث"
         android:textStyle="bold"
         android:textSize="18sp"
         android:fontFamily="@font/born2b_sporty_v2"
