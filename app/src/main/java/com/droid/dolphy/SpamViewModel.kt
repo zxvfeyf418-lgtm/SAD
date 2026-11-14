@@ -131,7 +131,7 @@ class SpamViewModel(private val application: Application) : AndroidViewModel(app
     val animatedBackgroundEnabled: StateFlow<Boolean> = _animatedBackgroundEnabled
     private val _expressiveEnabled = MutableStateFlow(prefs.getBoolean("md3_expressive", false))
     val expressiveEnabled: StateFlow<Boolean> = _expressiveEnabled
-    private val _appLanguage = MutableStateFlow(prefs.getString("app_language", "ru") ?: "ru")
+    private val _appLanguage = MutableStateFlow(prefs.getString("app_language", "ar") ?: "ar")
     val appLanguage: StateFlow<String> = _appLanguage
     private val _cyclicDolphinAnimationEnabled = MutableStateFlow(prefs.getBoolean("cyclic_dolphin_animation_enabled", false))
     val cyclicDolphinAnimationEnabled: StateFlow<Boolean> = _cyclicDolphinAnimationEnabled
