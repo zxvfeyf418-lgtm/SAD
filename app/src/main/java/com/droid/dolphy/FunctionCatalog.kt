@@ -44,9 +44,10 @@ fun functionDestinationSections(): List<Pair<String, List<FunctionDestination>>>
         PluginTranslator.initialize(context)
         val translated = linkedMapOf<String, Pair<String, String>>()
         pluginCards.forEach { card ->
-            fun hasArabic(value: String): Boolean = value.any { it in '\\u0600'..'\\u06FF' }
-            val translatedTitle = if (hasArabic(card.title)) card.title else PluginTranslator.translate(card.title)
-            val translatedDescription = if (hasArabic(card.description)) card.description else PluginTranslator.translate(card.description)
+            fun hasArabic(value: String): Boolean = value.any { it in '\u0600'..'\u06FF' }
+            fun needsTranslation(value: String): Boolean = value.any { it in 'A'..'Z' || it in 'a'..'z' }
+            val translatedTitle = if (needsTranslation(card.title)) PluginTranslator.translate(card.title) else card.title
+            val translatedDescription = if (needsTranslation(card.description)) PluginTranslator.translate(card.description) else card.description
             val title = translatedTitle?.takeIf { hasArabic(it) }
                 ?: card.title.takeIf { hasArabic(it) }
                 ?: "إضافة"
