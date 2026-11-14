@@ -1,45 +1,47 @@
 package com.droid.dolphy.ui.theme
 
 import androidx.compose.material3.Typography
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.unit.sp
-import com.droid.dolphy.R
-
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 
-private val AppFontFamily = FontFamily(Font(R.font.born2b_sporty_v2))
-private val GoogleSansBold = FontFamily.SansSerif
+// Use Android's clean system sans-serif for an iOS-inspired appearance.
+// SF Pro is Apple's proprietary font and is not bundled or redistributed here.
+private val AppFontFamily = FontFamily.SansSerif
 
 fun buildAppTypography(useFlipperFont: Boolean, fontScale: Float): Typography {
-    val family = if (useFlipperFont) AppFontFamily else GoogleSansBold
-    val weight = FontWeight.Bold
-
-
-    val baseScale = if (useFlipperFont) fontScale else 0.85f
-    val safeScale = baseScale.coerceIn(0.6f, 1.6f)
+    val safeScale = (if (useFlipperFont) fontScale else 1f).coerceIn(0.85f, 1.2f)
     val base = Typography()
 
+    fun style(
+        original: androidx.compose.ui.text.TextStyle,
+        weight: FontWeight = FontWeight.Normal,
+        spacing: Float = 0.1f
+    ) = original.copy(
+        fontFamily = AppFontFamily,
+        fontWeight = weight,
+        fontSize = original.fontSize * safeScale,
+        letterSpacing = spacing.sp
+    )
+
     return base.copy(
-        displayLarge = base.displayLarge.copy(fontFamily = family, fontWeight = weight, fontSize = base.displayLarge.fontSize * safeScale, letterSpacing = 0.3.sp),
-        displayMedium = base.displayMedium.copy(fontFamily = family, fontWeight = weight, fontSize = base.displayMedium.fontSize * safeScale, letterSpacing = 0.3.sp),
-        displaySmall = base.displaySmall.copy(fontFamily = family, fontWeight = weight, fontSize = base.displaySmall.fontSize * safeScale, letterSpacing = 0.3.sp),
-        headlineLarge = base.headlineLarge.copy(fontFamily = family, fontWeight = weight, fontSize = base.headlineLarge.fontSize * safeScale, letterSpacing = 0.25.sp),
-        headlineMedium = base.headlineMedium.copy(fontFamily = family, fontWeight = weight, fontSize = base.headlineMedium.fontSize * safeScale, letterSpacing = 0.25.sp),
-        headlineSmall = base.headlineSmall.copy(fontFamily = family, fontWeight = weight, fontSize = base.headlineSmall.fontSize * safeScale, letterSpacing = 0.25.sp),
-        titleLarge = base.titleLarge.copy(fontFamily = family, fontWeight = weight, fontSize = base.titleLarge.fontSize * safeScale, letterSpacing = 0.25.sp),
-        titleMedium = base.titleMedium.copy(fontFamily = family, fontWeight = weight, fontSize = base.titleMedium.fontSize * safeScale, letterSpacing = 0.2.sp),
-        titleSmall = base.titleSmall.copy(fontFamily = family, fontWeight = weight, fontSize = base.titleSmall.fontSize * safeScale, letterSpacing = 0.2.sp),
-        bodyLarge = base.bodyLarge.copy(fontFamily = family, fontWeight = weight, fontSize = base.bodyLarge.fontSize * safeScale, letterSpacing = 0.2.sp),
-        bodyMedium = base.bodyMedium.copy(fontFamily = family, fontWeight = weight, fontSize = base.bodyMedium.fontSize * safeScale, letterSpacing = 0.2.sp),
-        bodySmall = base.bodySmall.copy(fontFamily = family, fontWeight = weight, fontSize = base.bodySmall.fontSize * safeScale, letterSpacing = 0.2.sp),
-        labelLarge = base.labelLarge.copy(fontFamily = family, fontWeight = weight, fontSize = base.labelLarge.fontSize * safeScale, letterSpacing = 0.2.sp),
-        labelMedium = base.labelMedium.copy(fontFamily = family, fontWeight = weight, fontSize = base.labelMedium.fontSize * safeScale, letterSpacing = 0.2.sp),
-        labelSmall = base.labelSmall.copy(fontFamily = family, fontWeight = weight, fontSize = base.labelSmall.fontSize * safeScale, letterSpacing = 0.2.sp),
+        displayLarge = style(base.displayLarge, FontWeight.Bold, 0.2f),
+        displayMedium = style(base.displayMedium, FontWeight.Bold, 0.2f),
+        displaySmall = style(base.displaySmall, FontWeight.Bold, 0.2f),
+        headlineLarge = style(base.headlineLarge, FontWeight.SemiBold, 0.15f),
+        headlineMedium = style(base.headlineMedium, FontWeight.SemiBold, 0.15f),
+        headlineSmall = style(base.headlineSmall, FontWeight.SemiBold, 0.15f),
+        titleLarge = style(base.titleLarge, FontWeight.SemiBold, 0.1f),
+        titleMedium = style(base.titleMedium, FontWeight.Medium, 0.1f),
+        titleSmall = style(base.titleSmall, FontWeight.Medium, 0.1f),
+        bodyLarge = style(base.bodyLarge),
+        bodyMedium = style(base.bodyMedium),
+        bodySmall = style(base.bodySmall),
+        labelLarge = style(base.labelLarge, FontWeight.Medium),
+        labelMedium = style(base.labelMedium, FontWeight.Medium),
+        labelSmall = style(base.labelSmall, FontWeight.Medium),
     )
 }
-
-
 
 fun buildExpressiveTypography(useFlipperFont: Boolean, fontScale: Float): Typography {
     val base = buildAppTypography(useFlipperFont, fontScale)
@@ -56,5 +58,4 @@ fun buildExpressiveTypography(useFlipperFont: Boolean, fontScale: Float): Typogr
     )
 }
 
-val Typography = buildAppTypography(useFlipperFont = true, fontScale = 1.08f)
-
+val Typography = buildAppTypography(useFlipperFont = false, fontScale = 1f)
