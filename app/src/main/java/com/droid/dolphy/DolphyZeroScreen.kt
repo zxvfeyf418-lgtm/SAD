@@ -201,7 +201,7 @@ fun DolphyZeroScreen(navController: NavController) {
             DolphyIconButton(onClick = { goBack() }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = "Back",
+                    contentDescription = "رجوع",
                     tint = Color.White
                 )
             }
