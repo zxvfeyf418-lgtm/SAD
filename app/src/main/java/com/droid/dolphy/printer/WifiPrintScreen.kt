@@ -613,17 +613,17 @@ private fun NoticeCard(icon: ImageVector, message: String, color: Color) {
 }
 
 private fun printerStateLabel(code: Int?): String = when (code) {
-    3 -> "Ready"
-    4 -> "Printing"
-    5 -> "Attention"
-    else -> "Connected"
+    3 -> "جاهز"
+    4 -> "جارٍ الطباعة"
+    5 -> "يتطلب الانتباه"
+    else -> "متصل"
 }
 
 private fun formatLabel(value: String): String = when (value.lowercase()) {
     "application/pdf" -> "PDF"
     "image/jpeg" -> "JPEG"
     "image/png" -> "PNG"
-    "image/pwg-raster" -> "PWG Raster"
+    "image/pwg-raster" -> "تنسيق طباعة الصور"
     else -> value.substringAfter('/')
 }
 
@@ -634,23 +634,23 @@ private fun mediaLabel(value: String): String = value
     .replaceFirstChar { it.uppercase() }
 
 private fun sidesLabel(value: String): String = when (value) {
-    "one-sided" -> "1 side"
-    "two-sided-long-edge" -> "2 sides · long"
-    "two-sided-short-edge" -> "2 sides · short"
+    "one-sided" -> "وجه واحد"
+    "two-sided-long-edge" -> "وجهان · حافة طويلة"
+    "two-sided-short-edge" -> "وجهان · حافة قصيرة"
     else -> value
 }
 
 private fun colorLabel(value: String): String = when (value) {
     "color" -> "Color"
-    "monochrome" -> "B/W"
-    "auto" -> "Auto"
+    "monochrome" -> "أبيض وأسود"
+    "auto" -> "تلقائي"
     else -> value
 }
 
 private fun orientationLabel(value: Int): String = when (value) {
-    3 -> "Portrait"
-    4 -> "Landscape"
-    5 -> "Reverse landscape"
+    3 -> "عمودي"
+    4 -> "أفقي"
+    5 -> "أفقي معكوس"
     6 -> "Reverse portrait"
     else -> "Auto"
 }
