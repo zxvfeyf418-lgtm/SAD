@@ -208,7 +208,7 @@ private fun BondSpamContent(
                                 Spacer(modifier = Modifier.height(4.dp))
 
                                 Text(
-                                    text = "${stringResource(R.string.ble_label_spam_interval)}: ${sliderValue.toInt()} ms",
+                                    text = "${stringResource(R.string.ble_label_spam_interval)}: ${sliderValue.toInt()} مللي ثانية",
                                     style = MaterialTheme.typography.bodyMedium,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
