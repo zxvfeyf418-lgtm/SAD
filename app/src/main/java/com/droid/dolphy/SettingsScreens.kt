@@ -44,8 +44,8 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
 
     val appVersion = remember {
         runCatching {
-            context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: "unknown"
-        }.getOrDefault("unknown")
+            context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: "غير معروف"
+        }.getOrDefault("غير معروف")
     }
     val uriHandler = LocalUriHandler.current
 
