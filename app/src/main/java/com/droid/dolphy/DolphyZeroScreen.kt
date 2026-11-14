@@ -394,7 +394,7 @@ private fun MiniFirmwareScreen(
             if(hasBelow) {
                 Spacer(modifier = Modifier.weight(1f))
                 Text(
-                    text = "v more",
+                    text = "⌄ المزيد",
                     color = accent.copy(alpha = 0.65f),
                     fontFamily = FontFamily.Monospace,
                     style = MaterialTheme.typography.labelSmall
