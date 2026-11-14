@@ -455,9 +455,9 @@ fun QrAudioSpooferScreen(
         val s = serverIp!!
         if (s.startsWith("http://")) s else "http://$s"
     } else if (isStarted) {
-        "Starting local server…"
+        "جارٍ تشغيل الخادم المحلي…"
     } else {
-        "Waiting..."
+        "بانتظار..."
     }
 
     val qrBitmap = remember(qrUrl, isStarted) {
@@ -469,11 +469,11 @@ fun QrAudioSpooferScreen(
     var expanded by remember { mutableStateOf(false) }
     val customHtmlName by viewModel.customHtmlName.collectAsState()
     val pages = listOf(
-        "dolphy" to "Dolphy (Default)",
-        "wifi" to "Free WiFi",
-        "error" to "Error (Chrome style)",
-        "vpn" to "VPN Service",
-        "custom_html" to if (customHtmlName != null) "Import HTML ($customHtmlName)" else "Import HTML",
+        "dolphy" to "دولفي (افتراضي)",
+        "wifi" to "واي فاي مجاني",
+        "error" to "خطأ (بنمط كروم)",
+        "vpn" to "خدمة الشبكة الخاصة",
+        "custom_html" to if (customHtmlName != null) "استيراد صفحة ويب ($customHtmlName)" else "استيراد صفحة ويب",
     )
     val isCustomHtml = pageType == "custom_html"
 
