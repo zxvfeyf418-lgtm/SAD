@@ -1,0 +1,80 @@
+import material.icons.Info
+import material.icons.SettingsBluetooth
+import material.icons.Security
+
+{
+  "id": "com.droid.dolphy.sysinfo",
+  "name": "System Info",
+  "version": "1.0.0",
+  "description": "Shows system information and root status",
+  "author": "Dolphy Team",
+  "icon": "Info",
+  "permissions": ["hardware.root", "hardware.shell"],
+  "state": {
+    "root_status": "Tap Check Root",
+    "kernel_info": "...",
+    "android_version": "..."
+  },
+  "screens": [
+    {
+      "id": "main",
+      "title": "System Info",
+      "layout": [
+        {
+          "type": "card",
+          "children": [
+            {
+              "type": "text",
+              "text": "Root Status",
+              "style": "title"
+            },
+            {
+              "type": "text",
+              "text": "{{ state.root_status }}",
+              "style": "body"
+            },
+            {
+              "type": "button",
+              "text": "Check Root",
+              "icon": "Security",
+              "onClick": [
+                {
+                  "type": "root_shell",
+                  "value": "id",
+                  "key": "root_status"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "children": [
+            {
+              "type": "text",
+              "text": "Kernel",
+              "style": "title"
+            },
+            {
+              "type": "text",
+              "text": "{{ state.kernel_info }}",
+              "style": "body"
+            },
+            {
+              "type": "button",
+              "text": "Refresh Info",
+              "icon": "SettingsBluetooth",
+              "onClick": [
+                {
+                  "type": "shell",
+                  "value": "uname -a",
+                  "key": "kernel_info"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

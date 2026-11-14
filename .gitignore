@@ -1,0 +1,15 @@
+/.gradle/
+/.idea/
+/build/
+/app/build/
+/local.properties
+/keystore.properties
+/my key/
+*.jks
+*.keystore
+*.pk8
+*.pem
+.cxx/
+**/app/.cxx/
+/.kotlin/
+/plugin-test-suite/dex-build/
