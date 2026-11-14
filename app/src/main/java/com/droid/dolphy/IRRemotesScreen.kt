@@ -3261,7 +3261,7 @@ fun IRStormScreen(navController: NavController? = null) {
                         }
                     }
                     Text(
-                        text = "Be Gone",
+                        text = "انتهى",
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
                         maxLines = 1,
