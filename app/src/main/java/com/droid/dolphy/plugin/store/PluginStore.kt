@@ -166,9 +166,8 @@ object PluginStoreRepository {
                 _plugins.value = list
                 _loadState.value = StoreLoadState.READY
                 _error.value = null
-                if (_translateEnabled.value) {
-                    runCatching { withContext(Dispatchers.IO) { translateCatalog(list) } }
-                }
+                // نسخة 2N5A عربية فقط: ترجم أسماء الإضافات وأوصافها دائماً.
+                runCatching { withContext(Dispatchers.IO) { translateCatalog(list) } }
             }
             .onFailure { t ->
                 Log.e(TAG, "refresh failed", t)
@@ -425,7 +424,8 @@ object PluginStoreRepository {
         val active = prefs.getString(KEY_ACTIVE, DEFAULT_SOURCE.id) ?: DEFAULT_SOURCE.id
         _activeSourceId.value = if (list.containsKey(active)) active else DEFAULT_SOURCE.id
         _autoUpdate.value = prefs.getBoolean(KEY_AUTO_UPDATE, false)
-        _translateEnabled.value = prefs.getBoolean(KEY_TRANSLATE, true)
+        _translateEnabled.value = true
+        prefs.edit().putBoolean(KEY_TRANSLATE, true).apply()
     }
 
     fun setAutoUpdate(enabled: Boolean) {
@@ -435,9 +435,10 @@ object PluginStoreRepository {
     }
 
     fun setTranslateEnabled(enabled: Boolean) {
-        _translateEnabled.value = enabled
+        // الترجمة العربية ثابتة في نسخة 2N5A ولا يمكن إيقافها من الواجهة.
+        _translateEnabled.value = true
         appContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-            .edit().putBoolean(KEY_TRANSLATE, enabled).apply()
+            .edit().putBoolean(KEY_TRANSLATE, true).apply()
     }
 
     suspend fun runAutoUpdateOnce(installed: List<LoadedPlugin>) {
