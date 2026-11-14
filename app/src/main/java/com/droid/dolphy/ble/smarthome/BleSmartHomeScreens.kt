@@ -181,7 +181,7 @@ fun BleSmartHomeScanScreen(navController: NavController) {
                 if (isScanning) stopScan() else startScan()
             }) {
                 if (isScanning) DolphyCircularProgressIndicator(Modifier.size(18.dp), strokeWidth = 2.dp)
-                else Icon(Icons.Default.Lightbulb, contentDescription = "Scan")
+                else Icon(Icons.Default.Lightbulb, contentDescription = "فحص")
             }
         },
     ) { headerPadding ->
