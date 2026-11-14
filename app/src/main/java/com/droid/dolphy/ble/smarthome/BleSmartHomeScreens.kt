@@ -308,7 +308,7 @@ fun BleSmartHomeDeviceScreen(navController: NavController, address: String) {
                 .done {
                     connecting = false
                     connected = true
-                    status = "Connected"
+                    status = "متصل"
                 }
                 .enqueue()
             onDispose {
