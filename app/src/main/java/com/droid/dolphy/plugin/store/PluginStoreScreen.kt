@@ -323,7 +323,7 @@ private fun FeaturedCard(plugin: StorePlugin, onClick: () -> Unit) {
                 overflow = TextOverflow.Ellipsis,
             )
             Text(
-                "v${plugin.version} · ${plugin.author.ifBlank { "—" }}",
+                "الإصدار ${plugin.version} · المطوّر ${plugin.author.ifBlank { "غير معروف" }}",
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.7f),
                 maxLines = 1,
@@ -452,7 +452,7 @@ fun PluginStoreDetailScreen(navController: NavController) {
                                 fontWeight = FontWeight.Bold,
                             )
                             Text(
-                                "v${current.version}" + if (current.author.isNotBlank()) " · ${current.author}" else "",
+                                "الإصدار ${current.version}" + if (current.author.isNotBlank()) " · المطوّر ${current.author}" else "",
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.85f),
                             )
