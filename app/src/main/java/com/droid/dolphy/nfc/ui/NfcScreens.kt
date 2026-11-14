@@ -125,12 +125,12 @@ fun NfcWaitScreen(navController: NavController, viewModel: NfcViewModel) {
                             modifier = Modifier.size(width = 53.dp, height = 53.dp),
                             frameDelayMs = 333L,
                             tintColor = accent,
-                            contentDescription = "NFC reading animation",
+                            contentDescription = "حركة قراءة البطاقة",
                         )
                     } else {
                         Image(
                             painter = painterResource(id = R.drawable.passport_bad2_46x49),
-                            contentDescription = "NFC unavailable",
+                            contentDescription = "الاتصال قريب المدى غير متاح",
                             modifier = Modifier.size(width = 138.dp, height = 147.dp),
                             colorFilter = ColorFilter.tint(
                                 color = accent,
