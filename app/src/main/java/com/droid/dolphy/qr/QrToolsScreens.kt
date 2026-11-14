@@ -421,7 +421,7 @@ fun QrDetailScreen(qrId: String, navController: NavController) {
                     ) {
                         Icon(Icons.Default.ContentCopy, null, tint = MaterialTheme.colorScheme.onPrimary)
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("نسخ المحتوى", color = MaterialTheme.colorScheme.onPrimary)
+                        Text("نسخ النص", color = MaterialTheme.colorScheme.onPrimary)
                     }
                 }
             }
@@ -588,7 +588,7 @@ fun QrAudioSpooferScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
 
-            Text("اختر نوع الصفحة", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("اختَر نوع المحتوى", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Box(modifier = Modifier.fillMaxWidth()) {
                 Card(
@@ -648,7 +648,7 @@ fun QrAudioSpooferScreen(
                     onClick = { htmlPickerLauncher.launch("*/*") },
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text("استبدال صفحة الويب")
+                    Text("تغيير صفحة الويب")
                 }
             }
 
@@ -657,7 +657,7 @@ fun QrAudioSpooferScreen(
             if (!isCustomHtml) {
 
             val deviceCount by viewModel.deviceCount.collectAsState()
-            Text("لوحة الأصوات", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("التحكم بالأصوات", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Text("الأجهزة المتصلة: $deviceCount", color = accentColor, fontSize = 11.sp, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -689,7 +689,7 @@ fun QrAudioSpooferScreen(
 
 
             var ttsText by remember { mutableStateOf("") }
-            Text("تحويل النص إلى كلام", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("قراءة النص بصوت مسموع", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -724,7 +724,7 @@ fun QrAudioSpooferScreen(
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier.height(52.dp)
                 ) {
-                    Text("نطق", color = MaterialTheme.colorScheme.onPrimary, fontWeight = FontWeight.Bold)
+                    Text("تشغيل الصوت", color = MaterialTheme.colorScheme.onPrimary, fontWeight = FontWeight.Bold)
                 }
             }
 
