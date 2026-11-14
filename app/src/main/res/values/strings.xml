@@ -1311,4 +1311,11 @@
     <string name="nrf_signal_very_weak">ضعيفة جداً</string>
     <string name="nrf_bluetooth_off_title">البلوتوث متوقف</string>
     <string name="nrf_bluetooth_off_message">شغّل البلوتوث حتى تبحث عن الأجهزة القريبة.</string>
+    <string name="catalog_ble_title">فحص بث البلوتوث منخفض الطاقة</string>
+    <string name="catalog_bond_title">فحص طلبات الاقتران</string>
+    <string name="catalog_nrf_title">فاحص أجهزة البلوتوث القريبة</string>
+    <string name="catalog_chat_title">محادثة دولفي</string>
+    <string name="catalog_bluetooth_test_title">اختبار اتصال البلوتوث</string>
+    <string name="catalog_bluetooth_test_desc">اختبار استقرار اتصال البلوتوث في بيئة تملكها أو لديك إذن بفحصها.</string>
+    <string name="catalog_network_title">فحص الشبكة اللاسلكية</string>
 </resources>
