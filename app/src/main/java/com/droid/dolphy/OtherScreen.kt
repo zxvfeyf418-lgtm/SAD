@@ -378,7 +378,7 @@ fun OtherScreen(navController: NavController, spamViewModel: SpamViewModel) {
                                                 if (isPinned) {
                                                     Icon(
                                                         imageVector = Icons.Default.PushPin,
-                                                        contentDescription = "Pinned",
+                                                        contentDescription = "مثبّت",
                                                         tint = accent,
                                                         modifier = Modifier.size(16.dp).padding(end = 4.dp)
                                                     )
@@ -867,7 +867,7 @@ fun OtherScreen(navController: NavController, spamViewModel: SpamViewModel) {
                                             if (isPinned) {
                                                 Icon(
                                                     imageVector = Icons.Default.PushPin,
-                                                    contentDescription = "Pinned",
+                                                    contentDescription = "مثبّت",
                                                     tint = accent,
                                                     modifier = Modifier.size(16.dp).padding(end = 4.dp)
                                                 )
@@ -1197,7 +1197,7 @@ private fun RenderTileCard(
                                 Box(contentAlignment = Alignment.Center) {
                                     Icon(
                                         imageVector = Icons.Default.PushPin,
-                                        contentDescription = "Pinned",
+                                        contentDescription = "مثبّت",
                                         tint = accent,
                                         modifier = Modifier.size(13.dp)
                                     )
