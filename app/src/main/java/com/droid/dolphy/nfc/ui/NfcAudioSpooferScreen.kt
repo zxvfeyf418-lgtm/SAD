@@ -103,17 +103,17 @@ fun NfcAudioSpooferScreen(
                 title = { Text("محاكاة صوت عبر الاتصال قريب المدى", color = Color.White) },
                 navigationIcon = {
                     DolphyIconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "رجوع", tint = Color.White)
                     }
                 },
                 actions = {
                     if (!isStarted) {
                         DolphyIconButton(onClick = { viewModel.startServer() }) {
-                            Icon(Icons.Default.PlayArrow, "Start", tint = accentColor)
+                            Icon(Icons.Default.PlayArrow, "بدء", tint = accentColor)
                         }
                     } else {
                         DolphyIconButton(onClick = { viewModel.stopServer() }) {
-                            Icon(Icons.Default.Stop, "Stop", tint = Color.Red)
+                            Icon(Icons.Default.Stop, "إيقاف", tint = Color.Red)
                         }
                     }
                 },
@@ -144,7 +144,7 @@ fun NfcAudioSpooferScreen(
                     if (isStarted && nfcReady) {
                         Image(
                             painter = painterResource(id = R.drawable.nfc_dolphin_emulation_51x64_transparent),
-                            contentDescription = "NFC emulation active",
+                            contentDescription = "محاكاة الاتصال قريب المدى نشطة",
                             modifier = Modifier
                                 .size(width = 153.dp, height = 192.dp)
                                 .graphicsLayer(scaleX = scale, scaleY = scale),
@@ -152,7 +152,7 @@ fun NfcAudioSpooferScreen(
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            "NDEF URL EMULATION",
+                            "محاكاة سجل بيانات الرابط",
                             color = accentColor,
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp
@@ -161,14 +161,14 @@ fun NfcAudioSpooferScreen(
                         if (!nfcReady) {
                             Icon(
                                 imageVector = Icons.Default.Close,
-                                contentDescription = "NFC unavailable",
+                                contentDescription = "الاتصال قريب المدى غير متاح",
                                 modifier = Modifier.size(120.dp),
                                 tint = accentColor
                             )
                         } else {
                             Image(
                                 painter = painterResource(id = R.drawable.passport_bad2_46x49),
-                                contentDescription = "Ready to start",
+                                contentDescription = "جاهز للبدء",
                                 modifier = Modifier
                                     .size(width = 138.dp, height = 147.dp),
                                 colorFilter = ColorFilter.tint(Color.Gray),
@@ -176,14 +176,14 @@ fun NfcAudioSpooferScreen(
                         }
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            if (!nfcReady) "NFC DISABLED" else "READY TO START",
+                            if (!nfcReady) "الاتصال قريب المدى متوقف" else "جاهز للبدء",
                             color = if (!nfcReady) accentColor else Color.Gray,
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp
                         )
                         if (!nfcReady) {
                             Text(
-                                "Please enable NFC in settings",
+                                "يرجى تفعيل الاتصال قريب المدى من الإعدادات",
                                 color = Color.Gray,
                                 fontSize = 12.sp
                             )
@@ -210,7 +210,7 @@ fun NfcAudioSpooferScreen(
                     ) {
                         Icon(
                             Icons.Default.ContentCopy,
-                            contentDescription = "Copy URL",
+                            contentDescription = "نسخ الرابط",
                             tint = accentColor.copy(alpha = 0.7f),
                             modifier = Modifier.size(16.dp)
                         )
@@ -233,7 +233,7 @@ fun NfcAudioSpooferScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            pages.find { it.first == pageType }?.second ?: "Select a page",
+                            pages.find { it.first == pageType }?.second ?: "اختر صفحة",
                             modifier = Modifier.weight(1f),
                             color = Color.White
                         )
@@ -312,7 +312,7 @@ fun NfcAudioSpooferScreen(
                     value = ttsText,
                     onValueChange = { ttsText = it },
                     modifier = Modifier.weight(1f),
-                    placeholder = { Text("Enter text...", fontSize = 14.sp) },
+                    placeholder = { Text("أدخل النص...", fontSize = 14.sp) },
                     colors = TextFieldDefaults.colors(
                         focusedContainerColor = Color.White.copy(alpha = 0.05f),
                         unfocusedContainerColor = Color.White.copy(alpha = 0.05f),
