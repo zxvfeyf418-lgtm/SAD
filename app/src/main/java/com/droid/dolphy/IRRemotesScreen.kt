@@ -2272,16 +2272,16 @@ private fun IrRemoteControlLayout(
                         modifier = Modifier.weight(1f),
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        groups.volUp?.let { RemoteTextButton(it, "VOL +", onPress, Modifier.fillMaxWidth()) }
-                        groups.mute?.let { RemoteTextButton(it, "MUTE", onPress, Modifier.fillMaxWidth()) }
-                        groups.volDown?.let { RemoteTextButton(it, "VOL -", onPress, Modifier.fillMaxWidth()) }
+                        groups.volUp?.let { RemoteTextButton(it, "رفع الصوت", onPress, Modifier.fillMaxWidth()) }
+                        groups.mute?.let { RemoteTextButton(it, "كتم الصوت", onPress, Modifier.fillMaxWidth()) }
+                        groups.volDown?.let { RemoteTextButton(it, "خفض الصوت", onPress, Modifier.fillMaxWidth()) }
                     }
                     Column(
                         modifier = Modifier.weight(1f),
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        groups.channelUp?.let { RemoteTextButton(it, "CH +", onPress, Modifier.fillMaxWidth()) }
-                        groups.channelDown?.let { RemoteTextButton(it, "CH -", onPress, Modifier.fillMaxWidth()) }
+                        groups.channelUp?.let { RemoteTextButton(it, "القناة +", onPress, Modifier.fillMaxWidth()) }
+                        groups.channelDown?.let { RemoteTextButton(it, "القناة -", onPress, Modifier.fillMaxWidth()) }
                     }
                 }
             }
