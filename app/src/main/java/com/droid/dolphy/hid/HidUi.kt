@@ -125,8 +125,8 @@ fun Combo(
             onUp = {
                 mode = if (mode == "keyboard") "touchpad" else "keyboard"
             },
-            label = if (mode == "keyboard") "TP" else "KB",
-            imageAlt = "Change Mode",
+            label = if (mode == "keyboard") "لمس" else "مفاتيح",
+            imageAlt = "تغيير وضع التحكم",
             modifier = modifier,
         )
     }
@@ -134,8 +134,8 @@ fun Combo(
     val settingsPlum: @Composable (Modifier) -> Unit = { modifier ->
         Plum(
             onUp = {   },
-            label = "SET",
-            imageAlt = "Settings",
+            label = "ضبط",
+            imageAlt = "الإعدادات",
             modifier = modifier,
         )
     }
