@@ -63,7 +63,7 @@ fun NfcAudioSpooferScreen(
 
     val spoofUrl = if (serverIp != null) {
         if (serverIp!!.startsWith("http")) serverIp!! else "http://$serverIp"
-    } else "Waiting..."
+    } else "بانتظار..."
 
     val infinite = rememberInfiniteTransition(label = "nfc_spoof_animation")
     val scale by infinite.animateFloat(
@@ -75,10 +75,10 @@ fun NfcAudioSpooferScreen(
 
     var expanded by remember { mutableStateOf(false) }
     val pages = listOf(
-        "dolphy" to "Dolphy (Default)",
-        "wifi" to "Free Wi-Fi",
-        "error" to "Error (Chrome style)",
-        "vpn" to "VPN Service"
+        "dolphy" to "دولفي (افتراضي)",
+        "wifi" to "واي فاي مجاني",
+        "error" to "خطأ (بنمط كروم)",
+        "vpn" to "خدمة الشبكة الخاصة"
     )
 
     val showFirstTimeInfo by viewModel.showFirstTimeInfo.collectAsState()
