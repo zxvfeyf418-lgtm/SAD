@@ -59,34 +59,34 @@ fun PluginAboutScreen(navController: NavController) {
                 CodeBlock(
                     """
                     __id__ = "radio_lab"
-                    __name__ = "Radio Lab"
+                    __name__ = "مختبر الإشارات اللاسلكية"
                     __version__ = "1.0.0"
-                    __author__ = "Developer"
-                    __description__ = "Bluetooth and Wi-Fi toolkit"
+                    __author__ = "المطور"
+                    __description__ = "أدوات فحص البلوتوث والشبكة اللاسلكية"
                     __icon__ = "filled:bluetooth_searching"
 
                     class RadioLab(BasePlugin):
                         def on_plugin_load(self):
                             self.add_module(
-                                title="Radio Lab",
-                                description="Wireless diagnostics",
+                                title="مختبر الإشارات اللاسلكية",
+                                description="فحص الشبكات والأجهزة اللاسلكية",
                                 icon="bluetooth",
                                 section="BLUETOOTH"
                             )
 
                         def screen_main(self, ui, api, state):
                             return ui.scaffold(
-                                title="Radio Lab",
+                                title="مختبر الإشارات اللاسلكية",
                                 content=ui.column([
                                     ui.card([
-                                        ui.text("Bluetooth", "titleLarge"),
-                                        ui.button("Scan", self.scan, fill_max_width=True)
+                                        ui.text("البلوتوث", "titleLarge"),
+                                        ui.button("فحص", self.scan, fill_max_width=True)
                                     ])
                                 ], padding=16, spacing=12, fill_max_size=True)
                             )
 
                         def scan(self):
-                            self.toast("Starting scan")
+                            self.toast("بدأ الفحص")
                     """.trimIndent(),
                 )
             }
@@ -185,7 +185,7 @@ fun PluginAboutScreen(navController: NavController) {
                     self.set_setting("enabled", not enabled)
 
                     self.api.registerSettings(
-                        "Radio Lab",
+                        "مختبر الإشارات اللاسلكية",
                         '[{"type":"switch","key":"enabled","title":"Enabled","default":true}]'
                     )
                     """.trimIndent(),
