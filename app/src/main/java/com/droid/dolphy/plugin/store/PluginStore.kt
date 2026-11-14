@@ -72,9 +72,15 @@ data class StorePlugin(
     val shortDescription: String
         get() = description.lineSequence().firstOrNull { it.isNotBlank() }?.trim().orEmpty()
 
-    val displayName: String get() = translatedName?.takeIf { it.isNotBlank() } ?: name
+    val displayName: String
+        get() = translatedName?.takeIf { it.isNotBlank() }
+            ?: name.takeIf { value -> value.any { it in '\u0600'..'\u06FF' } }
+            ?: "إضافة"
 
-    val displayDescription: String get() = translatedDescription?.takeIf { it.isNotBlank() } ?: description
+    val displayDescription: String
+        get() = translatedDescription?.takeIf { it.isNotBlank() }
+            ?: description.takeIf { value -> value.any { it in '\u0600'..'\u06FF' } }
+            ?: "وصف الإضافة غير متوفر بالعربية حالياً."
 
     val displayShortDescription: String
         get() = displayDescription.lineSequence().firstOrNull { it.isNotBlank() }?.trim().orEmpty()
