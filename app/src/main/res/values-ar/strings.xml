@@ -111,7 +111,7 @@
     <string name="settings_spoofed_name">الاسم الظاهر</string>
     <string name="settings_spoofed_name_summary">هذا الاسم اللي راح تشوفه الأجهزة الثانية</string>
     <string name="passport_max_level">المستوى الأقصى</string>
-    <string name="passport_nfc_read">البطاقات المقروءة بNFC</string>
+    <string name="passport_nfc_read">البطاقات التي تمت قراءتها بتقنية الاتصال قريب المدى</string>
     <string name="passport_nfc_emulate">محاكاة بطاقات الاتصال قريب المدى</string>
     <string name="passport_ir_send">إشارات الأشعة تحت الحمراء المرسلة</string>
     <string name="passport_bad_hid">برامج واجهة الإدخال البشرية المنفذة</string>
@@ -231,14 +231,14 @@
     <string name="hid_device_other">جهاز</string>
     <string name="hid_connect">اتصال</string>
     <string name="hid_quiet_connect">اتصال صامت</string>
-    <string name="nfc_open_payment_settings">فتح إعدادات الدفع عبر NFC</string>
+    <string name="nfc_open_payment_settings">فتح إعدادات الدفع باستخدام الاتصال قريب المدى</string>
     <string name="nfc_edit_mode">تعديل</string>
     <string name="nfc_exit_edit_mode">إنهاء وضع التعديل</string>
     <string name="nfc_delete_selected">حذف البطاقات المحددة</string>
-    <string name="nfc_tool_erase_title">مسح بيانات بطاقة NFC</string>
+    <string name="nfc_tool_erase_title">مسح بيانات البطاقة</string>
     <string name="nfc_tool_erase_desc">مسح البيانات الموجودة على البطاقة إذا كانت تدعم المسح.</string>
     <string name="nfc_apply_erase">قرّب البطاقة من الهاتف حتى تمسح بياناتها.</string>
-    <string name="nfc_write_menu_title">كتابة بيانات على بطاقة NFC</string>
+    <string name="nfc_write_menu_title">كتابة بيانات على البطاقة</string>
     <string name="nfc_write_pick_type">اختَر نوع البيانات اللي تريد تكتبها</string>
     <string name="nfc_write_type_contact">جهة اتصال</string>
     <string name="nfc_write_type_contact_desc">رقم هاتف أو معلومات اتصال</string>
@@ -358,7 +358,7 @@
     <string name="zero_archive">الأرشيف</string>
     <string name="zero_updater">محدّث النظام</string>
     <string name="zero_infrared">الأشعة تحت الحمراء</string>
-    <string name="zero_nfc">NFC</string>
+    <string name="zero_nfc">بطاقات الاتصال قريب المدى</string>
     <string name="zero_lock">قفل</string>
     <string name="zero_unlock">فتح القفل</string>
     <string name="splash_app_name">2N5A</string>
@@ -676,12 +676,12 @@
     <string name="ir_cat_window_cleaners">منظفات النوافذ</string>
     <string name="ir_cat_banners">إشارات الأشعة تحت الحمراء</string>
     <string name="ir_cat_jammer">أداة تشويش الأشعة تحت الحمراء</string>
-    <string name="hid_bad_hid">وضع HID المتقدم</string>
+    <string name="hid_bad_hid">وضع التحكم المتقدم بالأجهزة</string>
     <string name="hid_screenshot_spam">تكرار التقاط الشاشة</string>
     <string name="hid_volume_spam">تكرار تغيير مستوى الصوت</string>
     <string name="hid_back_spam">تكرار أمر الرجوع أو الهروب</string>
     <string name="hid_home_spam">تكرار أمر الرئيسية</string>
-    <string name="hid_pc_bad_hid">وضع HID المتقدم للحاسوب</string>
+    <string name="hid_pc_bad_hid">وضع التحكم المتقدم بالحاسوب</string>
     <string name="hid_flipper_win">فليبر لويندوز</string>
     <string name="hid_flipper_mac">فليبر لماك</string>
     <string name="hid_notepad_label">نص المفكرة</string>
@@ -702,7 +702,7 @@
     <string name="hid_long_connection_title">الاتصال بطيء</string>
     <string name="hid_long_connection_message">الاتصال أخذ أكثر من 10 ثواني. أعد تشغيل البلوتوث وافتح أداة التحكم بالأجهزة مرة ثانية.</string>
     <string name="nfc_tools">أدوات الاتصال قريب المدى</string>
-    <string name="nfc_tools_description">قراءة بطاقات الاتصال قريب المدى وعرض بياناتها وفحصها.</string>
+    <string name="nfc_tools_description">قراءة بطاقات الاتصال قريب المدى وعرض البيانات المخزنة عليها وفحصها.</string>
     <string name="nfc_read">قراءة البطاقة</string>
     <string name="nfc_read_description">قراءة البطاقة وعرض البيانات المخزنة عليها.</string>
     <string name="nfc_emulate">محاكاة البطاقة</string>
@@ -824,7 +824,7 @@
     <string name="zero_wifi_deauth">اختبار إلغاء اتصال الشبكة الواي فاي</string>
     <string name="zero_bad_usb">أدوات USB المتقدمة</string>
     <string name="zero_ble_spam">اختبار بث البلوتوث منخفض الطاقة</string>
-    <string name="zero_hid_remote">التحكم عن بُعد عبر واجهة HID</string>
+    <string name="zero_hid_remote">التحكم بالأجهزة عن بُعد باستخدام لوحة المفاتيح</string>
     <string name="zero_apps_short">التطبيقات</string>
     <string name="zero_js_not_implemented">مشغّل جافاسكربت غير متوفر في إصدار أندرويد</string>
     <string name="zero_updater_firmware">أداة التحديث متاحة في البرنامج الثابت فقط</string>
@@ -958,11 +958,11 @@
     <string name="wifi_print_print">طباعة</string>
     <string name="wifi_print_sending">جاري الإرسال…</string>
     <string name="wifi_print_test_page">طباعة صفحة اختبار</string>
-    <string name="wifi_print_manual_title">إضافة طابعة عبر بروتوكول IPP</string>
+    <string name="wifi_print_manual_title">إضافة طابعة باستخدام عنوان الشبكة</string>
     <string name="wifi_print_host">عنوان الشبكة أو اسم المضيف</string>
     <string name="wifi_print_port">المنفذ</string>
     <string name="wifi_print_path">مسار قائمة الانتظار</string>
-    <string name="wifi_print_secure">اتصال آمن عبر IPPS</string>
+    <string name="wifi_print_secure">اتصال آمن بالطابعة</string>
     <string name="wifi_print_cancel">إلغاء</string>
     <string name="plugin_manager_title">الإضافات</string>
     <string name="plugin_manager_card_title">إضافات دولفي بلغة بايثون</string>
@@ -1027,7 +1027,7 @@
     <string name="plugin_system_warning_countdown">موافق (%1$d)</string>
     <string name="plugin_preview_permissions">الإمكانات وطرق الوصول</string>
     <string name="plugin_preview_permissions_none">لم يتم اكتشاف إمكانات خاصة في الشيفرة</string>
-    <string name="plugin_capability_dex">تحميل ملفات DEX والوصول إلى الأصناف البرمجية</string>
+    <string name="plugin_capability_dex">تحميل ملفات تنفيذية إضافية وتشغيلها</string>
     <string name="plugin_capability_download">تنزيل الملفات</string>
     <string name="plugin_capability_network">طلبات الشبكة</string>
     <string name="plugin_capability_files">ملفات الإضافة ومواردها</string>
@@ -1035,7 +1035,7 @@
     <string name="plugin_capability_bluetooth">البلوتوث والبلوتوث منخفض الطاقة</string>
     <string name="plugin_capability_wifi">الشبكة الواي فاي</string>
     <string name="plugin_capability_infrared">مرسل الأشعة تحت الحمراء</string>
-    <string name="plugin_capability_usb">USB وواجهة HID</string>
+    <string name="plugin_capability_usb">التحكم بالأجهزة وتوصيلها عبر USB</string>
     <string name="plugin_capability_root">صلاحيات الجذر</string>
     <string name="plugin_capability_shizuku">شيـزوكو</string>
     <string name="plugin_capability_shell">أوامر سطر النظام</string>
@@ -1103,7 +1103,7 @@
     <string name="cast_network_missing">اتصل بشبكة لاسلكية محلية.</string>
     <string name="cast_file_too_large">لا توجد مساحة كافية لهذا الفيديو</string>
     <string name="nfc_hce_ready">معيار الاتصال قريب المدى من النوع الرابع. قرّب الهاتف من القارئ.</string>
-    <string name="hid_bad_hid_mode">وضع واجهة HID المتقدمة</string>
+    <string name="hid_bad_hid_mode">وضع التحكم المتقدم بالأجهزة</string>
     <string name="hid_device_name_label">اسم الجهاز: %s</string>
     <string name="hid_change_name_title">أدخل اسم الجهاز</string>
     <string name="hid_change_name_hint">اسم الجهاز</string>
@@ -1114,7 +1114,7 @@
     <string name="whisperpair_tws_scanning">جاري فحص أجهزة البلوتوث…</string>
     <string name="whisperpair_tws_empty">ما لقينا أجهزة. اجعل السماعات قابلة للاكتشاف.</string>
     <string name="whisperpair_tws_stopped">تم الإيقاف</string>
-    <string name="bad_usb_card_desc">ملف أوامر لوحة المفاتيح. يحتاج جهاز USB HID وصلاحيات الروت.</string>
+    <string name="bad_usb_card_desc">ملف يحتوي على أوامر لوحة المفاتيح لإرسالها إلى جهاز متوافق عبر USB. يحتاج إلى صلاحيات الجذر.</string>
     <string name="bad_usb_script_label">نص أوامر دوكي</string>
     <string name="bad_usb_run">تشغيل</string>
     <string name="bad_usb_running">جاري التشغيل…</string>
@@ -1122,7 +1122,7 @@
     <string name="bad_usb_status_disconnected">غير متصل</string>
     <string name="bad_usb_status_connected">متصل عبر USB</string>
     <string name="bad_usb_status_setup">جاري إعداد جهاز HID…</string>
-    <string name="bad_usb_hint">حتى تستخدم لوحة مفاتيح وفأرة USB لازم يكون جهازك يدعم HID وتتوفر صلاحيات الروت. وصّل الهاتف بالحاسوب واكتب الأوامر ثم اضغط تشغيل.</string>
+    <string name="bad_usb_hint">حتى تستخدم لوحة مفاتيح وفأرة عبر USB لازم جهازك يدعم هالميزة وتتوفر صلاحيات الجذر. وصّل الهاتف بالحاسوب واكتب الأوامر ثم اضغط تشغيل.</string>
     <string name="bad_usb_empty">أدخل نص أوامر دوكي</string>
     <string name="bad_usb_done">اكتمل تنفيذ النص</string>
     <string name="bad_usb_fail">فشل تنفيذ النص</string>
@@ -1130,7 +1130,7 @@
     <string name="nfc_status_disabled">الاتصال قريب المدى متوقف</string>
     <string name="nfc_prompt_enable">فعّل الاتصال قريب المدى من الإعدادات</string>
     <string name="nfc_open_settings">الإعدادات</string>
-    <string name="other_bad_usb">واجهة USB HID</string>
+    <string name="other_bad_usb">أوامر لوحة المفاتيح عبر USB</string>
     <string name="other_bad_usb_desc">إرسال أوامر لوحة المفاتيح إلى جهاز متوافق عبر USB. يحتاج إلى صلاحيات الجذر.</string>
     <string name="printer_available">الطابعات المتاحة</string>
     <string name="lan_mitm_entry">فحص وسيط الشبكة المحلية</string>
@@ -1224,7 +1224,7 @@
     <string name="nfc_detail_14">غير معروف</string>
     <string name="nfc_detail_15">التحليل</string>
     <string name="nfc_detail_16">النوع</string>
-    <string name="nfc_detail_17">بطاقة EMV</string>
+    <string name="nfc_detail_17">بطاقة دفع إلكترونية</string>
     <string name="nfc_detail_18">حفظ الرابط لمحاكاة النوع الرابع</string>
     <string name="nfc_detail_19">لا يمكن محاكاة هذه البطاقة</string>
     <string name="nfc_detail_20">نسخ البطاقة</string>
@@ -1279,7 +1279,7 @@
     <string name="store_updated">تاريخ التحديث</string>
     <string name="store_file">الملف</string>
     <string name="store_sources_title">مصادر الإضافات</string>
-    <string name="store_sources_hint">أضف مستودع GitHub يحتوي ملف index.json. تگدر تلصق رابط المستودع أو اسم صاحبه والمستودع أو رابط الملف مباشرة.</string>
+    <string name="store_sources_hint">أضف رابط مستودع الإضافات أو رابط ملف الفهرس. يمكنك لصق الرابط مباشرة أو كتابة اسم صاحب المستودع واسمه.</string>
     <string name="store_source_input_hint">رابط المستودع أو ملف الفهرس</string>
     <string name="store_add_source">إضافة مصدر</string>
     <string name="store_source_connected">تم ربط المصدر: %1$s</string>
