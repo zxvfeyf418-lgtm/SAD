@@ -587,7 +587,7 @@ class HidKeyboardActivity : ComponentActivity(), KeyboardService.Listener {
                                     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                                         Icon(
                                             Icons.Default.Info,
-                                            contentDescription = "BlueDucky info",
+                                            contentDescription = "معلومات بلو داكي",
                                             modifier = Modifier.size(14.dp),
                                             tint = MaterialTheme.colorScheme.onTertiaryContainer,
                                         )
