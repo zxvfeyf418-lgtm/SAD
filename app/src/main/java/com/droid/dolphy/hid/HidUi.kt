@@ -259,7 +259,7 @@ fun HidMainScreen(
                     modifier = Modifier.size(16.dp)
                 )
                 Spacer(modifier = Modifier.width(6.dp))
-                Text("BAD HID", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold)
+                Text("واجهة إدخال متقدمة", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold)
             }
             Text(
                 stringResource(R.string.hid_android_ios_mode),
@@ -1090,7 +1090,7 @@ fun Keyboard(
         fun key(multiplier: Float = 1f) = Modifier.width(keyWidth * multiplier).height(keyHeight)
 
         Row(modifier = Modifier.horizontalScroll(rememberScrollState())) {
-            PlumSymbol(hidConnection, "ESC", label = "Esc", modifier = key())
+            PlumSymbol(hidConnection, "ESC", label = "هروب", modifier = key())
             Spacer(modifier = Modifier.width(16.dp))
 
             if (layer != Layer.FUNCTION) {
@@ -1113,7 +1113,7 @@ fun Keyboard(
                 modifier = key(),
                 onDown = { },
                 onUp = { layer = if (layer == Layer.DEFAULT) Layer.FUNCTION else Layer.DEFAULT },
-                label = "Fn",
+                label = "وظيفة",
                 activeDot = true,
                 active = layer == Layer.FUNCTION
             )
@@ -1139,11 +1139,11 @@ fun Keyboard(
             }
             PlumSymbol(hidConnection, "MINUS", label = "_\n-", modifier = key())
             PlumSymbol(hidConnection, "EQUAL", label = "+\n=", modifier = key())
-            PlumSymbol(hidConnection, "BACKSPACE", label = "Backspace", modifier = key(2.2f))
+            PlumSymbol(hidConnection, "BACKSPACE", label = "حذف للخلف", modifier = key(2.2f))
         }
 
         Row(modifier = Modifier.horizontalScroll(rememberScrollState())) {
-            PlumSymbol(hidConnection, "TAB", label = "Tab", modifier = key(1.8f))
+            PlumSymbol(hidConnection, "TAB", label = "انتقال", modifier = key(1.8f))
             listOf("Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P").forEach {
                 PlumSymbol(hidConnection, it, label = it, modifier = key())
             }
@@ -1156,7 +1156,7 @@ fun Keyboard(
             PlumSymbol(
                 hidConnection = hidConnection,
                 key = "CAPSLOCK",
-                label = "Caps Lock",
+                label = "تثبيت الأحرف",
                 modifier = key(2.2f),
                 activeDot = true,
                 active = capsLock
@@ -1166,29 +1166,29 @@ fun Keyboard(
             }
             PlumSymbol(hidConnection, "SEMICOLON", label = ":\n;", modifier = key())
             PlumSymbol(hidConnection, "APOSTROPHE", label = "\"\n'", modifier = key())
-            PlumSymbol(hidConnection, "ENTER", label = "Return", modifier = key(2.2f))
+            PlumSymbol(hidConnection, "ENTER", label = "إدخال", modifier = key(2.2f))
         }
 
         Row(modifier = Modifier.horizontalScroll(rememberScrollState())) {
-            PlumModifier(hidConnection, "MOD_LSHIFT", label = "Shift", modifier = key(2.5f))
+            PlumModifier(hidConnection, "MOD_LSHIFT", label = "تبديل", modifier = key(2.5f))
             listOf("Z", "X", "C", "V", "B", "N", "M").forEach {
                 PlumSymbol(hidConnection, it, label = it, modifier = key())
             }
             PlumSymbol(hidConnection, "COMMA", label = "<\n,", modifier = key())
             PlumSymbol(hidConnection, "DOT", label = ">\n.", modifier = key())
             PlumSymbol(hidConnection, "SLASH", label = "?\n/", modifier = key())
-            PlumModifier(hidConnection, "MOD_RSHIFT", label = "Shift", modifier = key(2.5f))
+            PlumModifier(hidConnection, "MOD_RSHIFT", label = "تبديل", modifier = key(2.5f))
         }
 
         Row(modifier = Modifier.horizontalScroll(rememberScrollState())) {
-            PlumModifier(hidConnection, "MOD_LCTRL", label = "Ctrl", modifier = key(1.5f))
-            PlumModifier(hidConnection, "MOD_LMETA", label = "Win", modifier = key(1.2f))
-            PlumModifier(hidConnection, "MOD_LALT", label = "Alt", modifier = key(1.3f))
-            PlumSymbol(hidConnection, "SPACE", label = "Space", modifier = key(6.2f))
-            PlumModifier(hidConnection, "MOD_RALT", label = "Alt Gr", modifier = key(1.5f))
-            PlumModifier(hidConnection, "MOD_RMETA", label = "Win", modifier = key(1.2f))
+            PlumModifier(hidConnection, "MOD_LCTRL", label = "تحكم", modifier = key(1.5f))
+            PlumModifier(hidConnection, "MOD_LMETA", label = "نظام", modifier = key(1.2f))
+            PlumModifier(hidConnection, "MOD_LALT", label = "بديل", modifier = key(1.3f))
+            PlumSymbol(hidConnection, "SPACE", label = "مسافة", modifier = key(6.2f))
+            PlumModifier(hidConnection, "MOD_RALT", label = "بديل إضافي", modifier = key(1.5f))
+            PlumModifier(hidConnection, "MOD_RMETA", label = "نظام", modifier = key(1.2f))
             PlumSymbol(hidConnection, "APPLICATION", label = "≣", modifier = key(1.2f))
-            PlumModifier(hidConnection, "MOD_RCTRL", label = "Ctrl", modifier = key(1.5f))
+            PlumModifier(hidConnection, "MOD_RCTRL", label = "تحكم", modifier = key(1.5f))
         }
     }
 }
