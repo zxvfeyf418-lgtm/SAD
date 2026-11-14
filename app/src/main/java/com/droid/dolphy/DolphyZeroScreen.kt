@@ -87,13 +87,13 @@ fun DolphyZeroScreen(navController: NavController) {
             title = context.getString(R.string.zero_settings),
             sourcePath = "applications/settings/application.fam",
             items = listOf(
-                ZeroMenuItem("PP", "Passport", ZeroAction.Navigate("settings")),
-                ZeroMenuItem("SY", "System", ZeroAction.Navigate("settings")),
-                ZeroMenuItem("CL", "Clock", ZeroAction.Navigate("settings")),
-                ZeroMenuItem("AB", "About", ZeroAction.Navigate("settings")),
-                ZeroMenuItem("BT", "Bluetooth", ZeroAction.Navigate("bluetooth")),
-                ZeroMenuItem("PW", "Power", ZeroAction.Navigate("settings")),
-                ZeroMenuItem("ST", "Storage", ZeroAction.Navigate("settings"))
+                ZeroMenuItem("PP", "الملف الشخصي", ZeroAction.Navigate("settings")),
+                ZeroMenuItem("SY", "النظام", ZeroAction.Navigate("settings")),
+                ZeroMenuItem("CL", "الساعة", ZeroAction.Navigate("settings")),
+                ZeroMenuItem("AB", "حول التطبيق", ZeroAction.Navigate("settings")),
+                ZeroMenuItem("BT", "البلوتوث", ZeroAction.Navigate("bluetooth")),
+                ZeroMenuItem("PW", "الطاقة", ZeroAction.Navigate("settings")),
+                ZeroMenuItem("ST", "التخزين", ZeroAction.Navigate("settings"))
             )
         )
     }
@@ -102,13 +102,13 @@ fun DolphyZeroScreen(navController: NavController) {
             title = context.getString(R.string.zero_apps),
             sourcePath = "applications/services/loader/loader.h (LOADER_APPLICATIONS_NAME)",
             items = listOf(
-                ZeroMenuItem("RM", "Remote", ZeroAction.OpenHid),
-                ZeroMenuItem("TV", "IR TV", ZeroAction.Navigate("ir_tv_home")),
+                ZeroMenuItem("RM", "التحكم عن بُعد", ZeroAction.OpenHid),
+                ZeroMenuItem("TV", "تلفاز بالأشعة تحت الحمراء", ZeroAction.Navigate("ir_tv_home")),
                 ZeroMenuItem("IR", "عاصفة الأشعة تحت الحمراء", ZeroAction.Navigate("ir_storm")),
                 ZeroMenuItem("IJ", "تشويش الأشعة تحت الحمراء", ZeroAction.Navigate("ir_jammer")),
                 ZeroMenuItem("AR", "الأرشيف", ZeroAction.Navigate("user_ir_remotes")),
                 ZeroMenuItem("JS", "مشغّل جافاسكربت", ZeroAction.ShowMessage("مشغّل جافاسكربت غير متوفر في إصدار أندرويد")),
-                ZeroMenuItem("UP", "المحدّث", ZeroAction.ShowMessage("Updater is firmware-only"))
+                ZeroMenuItem("UP", "المحدّث", ZeroAction.ShowMessage("أداة التحديث متاحة في البرنامج الثابت فقط")
             )
         )
     }
@@ -117,7 +117,7 @@ fun DolphyZeroScreen(navController: NavController) {
             title = context.getString(R.string.zero_main_apps),
             sourcePath = "applications/main/application.fam",
             items = listOf(
-                ZeroMenuItem("GP", "منافذ الإدخال والإخراج", ZeroAction.Navigate("bluetooth")),
+                ZeroMenuItem("GP", "منافذ الإدخال والإخراج العامة", ZeroAction.Navigate("bluetooth")),
                 ZeroMenuItem("IR", "الأشعة تحت الحمراء", ZeroAction.Navigate("ir_flipper_home")),
                 ZeroMenuItem("RF", "تحديد الهوية بتردد 125 كيلوهرتز", ZeroAction.Navigate("nfc_tools")),
                 ZeroMenuItem("NF", "الاتصال قريب المدى", ZeroAction.Navigate("nfc_tools")),
@@ -134,7 +134,7 @@ fun DolphyZeroScreen(navController: NavController) {
 
                 ZeroMenuItem("IR", "الأشعة تحت الحمراء", ZeroAction.Navigate("ir_flipper_home")),
                 ZeroMenuItem("NF", "الاتصال قريب المدى", ZeroAction.Navigate("nfc_tools")),
-                ZeroMenuItem("BL", "اختبار بث البلوتوث منخفض الطاقة", ZeroAction.Navigate("bluetooth")),
+                ZeroMenuItem("BL", "فحص بث البلوتوث منخفض الطاقة", ZeroAction.Navigate("bluetooth")),
                 ZeroMenuItem("HD", "التحكم عن بُعد بلوحة المفاتيح", ZeroAction.OpenHid),
                 ZeroMenuItem("AR", "الأرشيف", ZeroAction.Navigate("user_ir_remotes")),
                 ZeroMenuItem("ST", "الإعدادات", ZeroAction.OpenMenu(settingsMenu)),
