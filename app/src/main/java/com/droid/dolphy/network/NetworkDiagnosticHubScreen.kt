@@ -893,7 +893,7 @@ fun NetworkDiagnosticHubScreen(navController: NavController) {
                             HubLanHost(
                                 ip = ip,
                                 title = name ?: ip,
-                                subtitle = if (name != null) ip else "online",
+                                subtitle = if (name != null) ip else "متصل",
                             )
                         }
                     }
