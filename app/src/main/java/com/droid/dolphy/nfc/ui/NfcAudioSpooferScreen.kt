@@ -220,7 +220,7 @@ fun NfcAudioSpooferScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
 
-            Text("اختر نوع الصفحة", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("اختَر نوع المحتوى", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Box(modifier = Modifier.fillMaxWidth()) {
                 Card(
@@ -269,7 +269,7 @@ fun NfcAudioSpooferScreen(
                 uri?.let { viewModel.addCustomAudio(it) }
             }
 
-            Text("لوحة الصوت", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("التحكم بالصوت", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Text("الأجهزة المتصلة: $deviceCount", color = accentColor, fontSize = 11.sp, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -301,7 +301,7 @@ fun NfcAudioSpooferScreen(
 
 
             var ttsText by remember { mutableStateOf("") }
-            Text("تحويل النص إلى كلام", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("قراءة النص بصوت مسموع", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -336,14 +336,14 @@ fun NfcAudioSpooferScreen(
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier.height(52.dp)
                 ) {
-                    Text("نطق", color = Color.Black, fontWeight = FontWeight.Bold)
+                    Text("تشغيل الصوت", color = Color.Black, fontWeight = FontWeight.Bold)
                 }
             }
 
             Spacer(modifier = Modifier.height(24.dp))
 
 
-            Text("سجل الأوامر", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("سجل العمليات", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Box(
                 modifier = Modifier
