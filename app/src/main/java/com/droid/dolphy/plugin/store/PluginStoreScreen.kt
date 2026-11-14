@@ -637,7 +637,7 @@ private fun SourcesSheet(onDismiss: () -> Unit) {
                             else MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                         Column(Modifier.weight(1f)) {
-                            Text(source.label, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                            Text(rememberTranslated(source.label), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
                             Text(
                                 source.indexUrl,
                                 style = MaterialTheme.typography.bodySmall,
