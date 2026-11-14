@@ -36,7 +36,6 @@ import com.droid.dolphy.qr.*
 fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewModel, navController: NavController) {
     val bottomScrollPadding = 132.dp
     val accentColor = MaterialTheme.colorScheme.primary
-    val flipperFontEnabled by spamViewModel.flipperFontEnabled.collectAsState()
     val uiScale by spamViewModel.uiScale.collectAsState()
     val cyclicDolphinAnimationEnabled by spamViewModel.cyclicDolphinAnimationEnabled.collectAsState()
     val dolphyState by dolphyViewModel.dolphyState.collectAsState()
@@ -197,35 +196,12 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     val functionsMenuViewType by spamViewModel.functionsMenuViewType.collectAsState()
                     val functionsTileSize by spamViewModel.functionsTileSize.collectAsState()
                     val appStyleMode by spamViewModel.appStyleMode.collectAsState()
-                    val interfaceItems = 5 + (if (functionsMenuViewType == 1) 1 else 0) + (if (liquidGlassEnabled) 1 else 0)
+                    val interfaceItems = 4 + (if (functionsMenuViewType == 1) 1 else 0) + (if (liquidGlassEnabled) 1 else 0)
 
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
                         accentColor = accentColor,
                         shape = getSegmentedShape(0, interfaceItems),
-                        contentPadding = 0.dp
-                    ) {
-                        Row(
-                            modifier = Modifier.padding(horizontal = 14.dp, vertical = 8.dp).fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Text(
-                                stringResource(R.string.settings_flipper_font),
-                                style = MaterialTheme.typography.bodyLarge,
-                                modifier = Modifier.weight(1f)
-                            )
-                            DolphySwitch(
-                                checked = flipperFontEnabled,
-                                onCheckedChange = { spamViewModel.setFlipperFontEnabled(it) }
-                            )
-                        }
-                    }
-
-
-                    MaterialCard(
-                        modifier = Modifier.fillMaxWidth(),
-                        accentColor = accentColor,
-                        shape = getSegmentedShape(1, interfaceItems),
                         contentPadding = 10.dp
                     ) {
                         Column(verticalArrangement = Arrangement.spacedBy(M3SegmentedListItemSpacing)) {
@@ -267,7 +243,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
                         accentColor = accentColor,
-                        shape = getSegmentedShape(2, interfaceItems),
+                        shape = getSegmentedShape(1, interfaceItems),
                         contentPadding = 0.dp
                     ) {
                         Row(
@@ -290,7 +266,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
                         accentColor = accentColor,
-                        shape = getSegmentedShape(3, interfaceItems),
+                        shape = getSegmentedShape(2, interfaceItems),
                         contentPadding = 12.dp,
                     ) {
                         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -392,7 +368,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
                         accentColor = accentColor,
-                        shape = getSegmentedShape(if (functionsMenuViewType == 1) 5 else 4, interfaceItems),
+                        shape = getSegmentedShape(if (functionsMenuViewType == 1) 4 else 3, interfaceItems),
                         contentPadding = 12.dp,
                     ) {
                         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -462,7 +438,7 @@ fun SettingsScreen(spamViewModel: SpamViewModel, dolphyViewModel: DolphyViewMode
                     MaterialCard(
                         modifier = Modifier.fillMaxWidth(),
                         accentColor = accentColor,
-                        shape = getSegmentedShape(if (functionsMenuViewType == 1) 6 else 5, interfaceItems),
+                        shape = getSegmentedShape(if (functionsMenuViewType == 1) 5 else 4, interfaceItems),
                         contentPadding = 0.dp
                     ) {
                         Column {
