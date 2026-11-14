@@ -138,7 +138,7 @@ fun DolphyZeroScreen(navController: NavController) {
                 ZeroMenuItem("HD", "HID Remote", ZeroAction.OpenHid),
                 ZeroMenuItem("AR", "Archive", ZeroAction.Navigate("user_ir_remotes")),
                 ZeroMenuItem("ST", "Settings", ZeroAction.OpenMenu(settingsMenu)),
-                ZeroMenuItem("AP", "Apps", ZeroAction.OpenMenu(appsMenu)),
+                ZeroMenuItem("AP", "التطبيقات", ZeroAction.OpenMenu(appsMenu)),
                 ZeroMenuItem("MN", "Main", ZeroAction.OpenMenu(mainMenu))
             )
         )
@@ -230,13 +230,13 @@ fun DolphyZeroScreen(navController: NavController) {
                         ) {
                             TopActionButton(
                                 icon = Icons.Default.CameraAlt,
-                                label = "Apps",
+                                label = "التطبيقات",
                                 accent = accent,
                                 onClick = { if(!isLocked) openAction(ZeroAction.OpenMenu(appsMenu)) }
                             )
                             TopActionButton(
                                 icon = Icons.Default.LockOpen,
-                                label = if(isLocked) "Unlock" else "Lock",
+                                label = if(isLocked) "فتح القفل" else "قفل",
                                 accent = accent,
                                 onClick = {
                                     isLocked = !isLocked
