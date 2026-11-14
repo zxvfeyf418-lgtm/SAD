@@ -162,7 +162,7 @@ fun QrGeneratorMainScreen(navController: NavController) {
         accentColor = accentColor,
         actions = {
             DolphyIconButton(onClick = { showAddDialog = true }) {
-                Icon(Icons.Default.Add, contentDescription = "Add QR", tint = accentColor)
+                Icon(Icons.Default.Add, contentDescription = "إضافة رمز الاستجابة السريعة", tint = accentColor)
             }
         },
     ) { headerPadding ->
@@ -342,7 +342,7 @@ fun QrSavedCard(qr: SavedQrCode, onDelete: () -> Unit, onClick: () -> Unit) {
                 )
             }
             DolphyIconButton(onClick = onDelete) {
-                Icon(Icons.Default.Delete, contentDescription = "Delete", tint = MaterialTheme.colorScheme.error)
+                Icon(Icons.Default.Delete, contentDescription = "حذف", tint = MaterialTheme.colorScheme.error)
             }
         }
     }
@@ -355,7 +355,7 @@ fun QrDetailScreen(qrId: String, navController: NavController) {
     val accentColor = MaterialTheme.colorScheme.primary
 
     BlurHeaderBox(
-        title = qr?.name ?: "QR Code",
+        title = qr?.name ?: "رمز الاستجابة السريعة",
         onBack = { navController.popBackStack() },
         accentColor = accentColor,
     ) { headerPadding ->
@@ -388,7 +388,7 @@ fun QrDetailScreen(qrId: String, navController: NavController) {
                         bitmap?.let {
                             Image(
                                 bitmap = it.asImageBitmap(),
-                                contentDescription = "QR Code",
+                                contentDescription = "رمز الاستجابة السريعة",
                                 modifier = Modifier
                                     .fillMaxSize(0.8f)
                                     .clip(RoundedCornerShape(16.dp))
@@ -545,7 +545,7 @@ fun QrAudioSpooferScreen(
                 when {
                     qrBitmap != null -> Image(
                         bitmap = qrBitmap.asImageBitmap(),
-                        contentDescription = "QR Code",
+                        contentDescription = "رمز الاستجابة السريعة",
                         modifier = Modifier
                             .fillMaxSize(0.8f)
                             .clip(RoundedCornerShape(16.dp))
@@ -578,7 +578,7 @@ fun QrAudioSpooferScreen(
                     ) {
                         Icon(
                             Icons.Default.ContentCopy,
-                            contentDescription = "Copy URL",
+                            contentDescription = "نسخ الرابط",
                             tint = accentColor.copy(alpha = 0.7f),
                             modifier = Modifier.size(16.dp)
                         )
@@ -601,7 +601,7 @@ fun QrAudioSpooferScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            pages.find { it.first == pageType }?.second ?: "Select Page",
+                            pages.find { it.first == pageType }?.second ?: "اختر صفحة",
                             modifier = Modifier.weight(1f),
                             color = MaterialTheme.colorScheme.onSurface
                         )
@@ -637,8 +637,8 @@ fun QrAudioSpooferScreen(
             if (isCustomHtml) {
                 Spacer(modifier = Modifier.height(12.dp))
                 Text(
-                    "Imported style: logs only. Audio controls are hidden. " +
-                        "Logs show site visits and all text entered on the page.",
+                    "النمط المستورد: السجل فقط. عناصر التحكم بالصوت مخفية. " +
+                        "يعرض السجل زيارات الموقع وجميع النصوص المدخلة في الصفحة.",
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     fontSize = 12.sp,
                     modifier = Modifier.fillMaxWidth()
@@ -657,7 +657,7 @@ fun QrAudioSpooferScreen(
             if (!isCustomHtml) {
 
             val deviceCount by viewModel.deviceCount.collectAsState()
-            Text("SOUNDBOARD", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("لوحة الأصوات", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Text("الأجهزة المتصلة: $deviceCount", color = accentColor, fontSize = 11.sp, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -733,7 +733,7 @@ fun QrAudioSpooferScreen(
 
 
             Text(
-                if (isCustomHtml) "SITE LOGS" else "TERMINAL LOGS",
+                if (isCustomHtml) "سجل الموقع" else "سجل الأوامر",
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
