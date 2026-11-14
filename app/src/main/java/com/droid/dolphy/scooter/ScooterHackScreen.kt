@@ -294,11 +294,11 @@ private fun ScooterDeviceCard(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     val icon = Icons.Filled.Build
-                    ActionChip(icon = icon, label = "Max 2G", accent = accent) { onSendPayload(ScooterProtocol.PAYLOAD_MAX_2G, "Max 2G") }
+                    ActionChip(icon = icon, label = "أقصى سرعة 2G", accent = accent) { onSendPayload(ScooterProtocol.PAYLOAD_MAX_2G, "أقصى سرعة 2G") }
                     ActionChip(icon = icon, label = "F2", accent = accent) { onSendPayload(ScooterProtocol.PAYLOAD_F2, "F2") }
-                    ActionChip(icon = icon, label = "Gen 1", accent = accent) { onSendPayload(ScooterProtocol.PAYLOAD_GEN_1, "Gen 1") }
-                    ActionChip(icon = icon, label = "Gen 2", accent = accent) { onSendPayload(ScooterProtocol.PAYLOAD_GEN_2, "Gen 2") }
-                    ActionChip(icon = icon, label = "Gen 3", accent = accent) { onSendPayload(ScooterProtocol.PAYLOAD_GEN_3, "Gen 3") }
+                    ActionChip(icon = icon, label = "الجيل الأول", accent = accent) { onSendPayload(ScooterProtocol.PAYLOAD_GEN_1, "الجيل الأول") }
+                    ActionChip(icon = icon, label = "الجيل الثاني", accent = accent) { onSendPayload(ScooterProtocol.PAYLOAD_GEN_2, "الجيل الثاني") }
+                    ActionChip(icon = icon, label = "الجيل الثالث", accent = accent) { onSendPayload(ScooterProtocol.PAYLOAD_GEN_3, "الجيل الثالث") }
                 }
             }
         }
