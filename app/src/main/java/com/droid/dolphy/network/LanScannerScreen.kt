@@ -842,7 +842,7 @@ private fun DeviceCard(device: LanDevice, accent: Color) {
                             shape = RoundedCornerShape(4.dp)
                         ) {
                             Text(
-                                text = "YOU",
+                                text = "أنت",
                                 modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp),
                                 style = MaterialTheme.typography.labelSmall,
                                 color = accent,
