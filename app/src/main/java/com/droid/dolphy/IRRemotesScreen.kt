@@ -126,7 +126,7 @@ fun LoadingScreen() {
                 modifier = Modifier.size(42.dp),
                 frameDelayMs = 200L,
                 tintColor = MaterialTheme.colorScheme.primary,
-                contentDescription = "IR loading animation"
+                contentDescription = "حركة تحميل الأشعة تحت الحمراء"
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
@@ -1621,7 +1621,7 @@ fun UniversalRemoteCategoryScreen(navController: NavController, categoryIdEnc: S
                             .align(Alignment.CenterHorizontally),
                         frameDelayMs = 333L,
                         tintColor = MaterialTheme.colorScheme.primary,
-                        contentDescription = "IR sending animation"
+                        contentDescription = "حركة إرسال الأشعة تحت الحمراء"
                     )
                     Text("$sendingAction: $sentSignals / $totalSignals")
                     DolphyLinearProgressIndicator(
