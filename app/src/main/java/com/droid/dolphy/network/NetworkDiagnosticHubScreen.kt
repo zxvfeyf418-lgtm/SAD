@@ -2154,7 +2154,7 @@ private fun BrutePasswordDialog(
                                         }
                                         if (group.isImported) {
                                             Text(
-                                                text = "imported",
+                                                text = "مستورد",
                                                 style = MaterialTheme.typography.labelSmall,
                                                 color = MaterialTheme.colorScheme.primary
                                             )
