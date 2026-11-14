@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.sp
 private val AppFontFamily = FontFamily.SansSerif
 
 fun buildAppTypography(useFlipperFont: Boolean, fontScale: Float): Typography {
-    val safeScale = (if (useFlipperFont) fontScale else 1f).coerceIn(0.85f, 1.2f)
+    val safeScale = fontScale.coerceIn(0.85f, 1.2f)
     val base = Typography()
 
     fun style(
