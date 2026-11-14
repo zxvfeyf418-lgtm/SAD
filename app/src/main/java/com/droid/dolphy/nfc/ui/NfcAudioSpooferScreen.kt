@@ -100,7 +100,7 @@ fun NfcAudioSpooferScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("NFC Audio Spoof", color = Color.White) },
+                title = { Text("محاكاة صوت عبر الاتصال قريب المدى", color = Color.White) },
                 navigationIcon = {
                     DolphyIconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
@@ -204,7 +204,7 @@ fun NfcAudioSpooferScreen(
                     DolphyIconButton(
                         onClick = {
                             clipboard.setText(AnnotatedString(spoofUrl))
-                            Toast.makeText(context, "URL copied to clipboard", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "تم نسخ الرابط إلى الحافظة", Toast.LENGTH_SHORT).show()
                         },
                         modifier = Modifier.size(32.dp)
                     ) {
@@ -220,7 +220,7 @@ fun NfcAudioSpooferScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
 
-            Text("SELECT PAGE TYPE", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("اختر نوع الصفحة", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Box(modifier = Modifier.fillMaxWidth()) {
                 Card(
@@ -269,8 +269,8 @@ fun NfcAudioSpooferScreen(
                 uri?.let { viewModel.addCustomAudio(it) }
             }
 
-            Text("SOUND PANEL", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
-            Text("Connected: $deviceCount devices", color = accentColor, fontSize = 11.sp, modifier = Modifier.fillMaxWidth())
+            Text("لوحة الصوت", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("الأجهزة المتصلة: $deviceCount", color = accentColor, fontSize = 11.sp, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 SoundButton("", Icons.Default.Email, accentColor) { viewModel.sendCommand("PLAY:iphone_message.mp3") }
@@ -301,7 +301,7 @@ fun NfcAudioSpooferScreen(
 
 
             var ttsText by remember { mutableStateOf("") }
-            Text("TEXT TO SPEECH", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("تحويل النص إلى كلام", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -336,14 +336,14 @@ fun NfcAudioSpooferScreen(
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier.height(52.dp)
                 ) {
-                    Text("Say", color = Color.Black, fontWeight = FontWeight.Bold)
+                    Text("نطق", color = Color.Black, fontWeight = FontWeight.Bold)
                 }
             }
 
             Spacer(modifier = Modifier.height(24.dp))
 
 
-            Text("TERMINAL LOGS", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
+            Text("سجل الأوامر", color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
             Box(
                 modifier = Modifier
